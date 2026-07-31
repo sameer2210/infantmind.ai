@@ -60,13 +60,16 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
     <div className="relative size-full">
       <img
         src={src}
+        alt={typeof title === "string" ? title : "InfantMind AI Feature"}
+        loading="lazy"
+        decoding="async"
         className="absolute left-0 top-0 size-full object-cover object-center"
       />
       <div className="relative z-10 flex size-full flex-col justify-between p-5 text-[#dfdff2]">
         <div>
-          <h1 className="bento-title special-font">{title}</h1>
+          <h2 className="bento-title special-font">{title}</h2>
           {description && (
-            <p className="mt-3 max-w-64 text-xs md:text-base">{description}</p>
+            <p className="mt-3 max-w-64 text-xs md:text-base font-circular-web">{description}</p>
           )}
         </div>
 
@@ -96,13 +99,13 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
 };
 
 const Features = () => (
-  <section id="features" className="bg-black pb-52">
+  <section id="features" className="bg-black pb-52" aria-label="InfantMind AI Features">
     <div className="container mx-auto px-3 md:px-10">
       <div className="px-5 py-32">
         <p className="font-circular-web text-lg text-[#dfdff2]">
           Advanced Baby Analytics
         </p>
-        <p className="max-w-md font-circular-web text-lg text-[#dfdff2] opacity-50">
+        <p className="max-w-md font-circular-web text-lg text-[#dfdff2] opacity-50 mt-1">
           Immerse yourself in a comprehensive system where AI models converge to provide real-time understanding of your baby's health, sleep, and development.
         </p>
       </div>
@@ -162,9 +165,9 @@ const Features = () => (
 
         <BentoTilt className="bento-tilt_2">
           <div className="flex size-full flex-col justify-between bg-violet-300 p-5">
-            <h1 className="bento-title special-font max-w-56 text-black">
+            <h2 className="bento-title special-font max-w-56 text-black">
               M<b>o</b>re co<b>m</b>ing s<b>o</b>on.
-            </h1>
+            </h2>
 
             <TiLocationArrow className="m-5 scale-[5] self-end" />
           </div>
@@ -173,6 +176,9 @@ const Features = () => (
         <BentoTilt className="bento-tilt_2">
           <img
             src="img/feature-5.png"
+            alt="InfantMind AI Feature Insights"
+            loading="lazy"
+            decoding="async"
             className="size-full object-cover object-center"
           />
         </BentoTilt>

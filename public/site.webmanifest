@@ -1,0 +1,20 @@
+{
+  "name": "InfantMind AI — AI-Powered Baby Understanding Platform",
+  "short_name": "InfantMind",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#dfdff0",
+  "theme_color": "#dfdff0",
+  "icons": [
+    {
+      "src": "/img/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -82,7 +82,10 @@ const Hero = () => {
   const getImageSrc = (index) => `img/hero-${index}.png`;
 
   return (
-    <div className="relative h-dvh w-full overflow-x-hidden">
+    <section className="relative h-dvh w-full overflow-x-hidden" aria-label="Hero Section">
+      {/* Visually Hidden H1 for SEO single H1 hierarchy requirement */}
+      <h1 className="sr-only">InfantMind AI — AI-Powered Baby Understanding Platform</h1>
+
       {loading && (
         <div className="flex-center absolute z-[100] h-dvh w-full overflow-hidden bg-violet-50">
           {/* https://uiverse.io/G4b413l/tidy-walrus-92 */}
@@ -109,6 +112,8 @@ const Hero = () => {
                   ref={nextImgRef}
                   src={getImageSrc((currentIndex % totalImages) + 1)}
                   id="current-video"
+                  alt="InfantMind AI Baby Cry Analysis Preview"
+                  decoding="async"
                   className="size-64 origin-center scale-150 object-cover object-center"
                   onLoad={handleImageLoad}
                 />
@@ -120,6 +125,8 @@ const Hero = () => {
             ref={nextImgRef}
             src={getImageSrc(currentIndex)}
             id="next-video"
+            alt="InfantMind AI Baby Health Monitoring"
+            decoding="async"
             className="absolute-center invisible absolute z-20 size-64 object-cover object-center"
             onLoad={handleImageLoad}
           />
@@ -127,20 +134,22 @@ const Hero = () => {
             src={getImageSrc(
               currentIndex === totalImages - 1 ? 1 : currentIndex
             )}
+            alt="InfantMind AI Multimodal Baby Platform Background"
+            decoding="async"
             className="absolute left-0 top-0 size-full object-cover object-center"
             onLoad={handleImageLoad}
           />
         </div>
 
-        <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-[#dfdff2]">
+        <div className="special-font hero-heading absolute bottom-5 right-5 z-40 text-[#dfdff2]">
           I<b>N</b>FANT
-        </h1>
+        </div>
 
         <div className="absolute left-0 top-0 z-40 size-full">
           <div className="mt-24 px-5 sm:px-10">
-            <h1 className="special-font hero-heading text-[#dfdff2]">
+            <div className="special-font hero-heading text-[#dfdff2]">
               de c<b>o</b>de
-            </h1>
+            </div>
 
             <p className="mb-5 max-w-64 font-robert-regular text-[#dfdff2]">
               Understand Every Cry <br /> AI-Powered Baby Insights
@@ -156,10 +165,10 @@ const Hero = () => {
         </div>
       </div>
 
-      <h1 className="special-font hero-heading absolute bottom-5 right-5 text-black">
+      <div className="special-font hero-heading absolute bottom-5 right-5 text-black">
         I<b>N</b>FANT
-      </h1>
-    </div>
+      </div>
+    </section>
   );
 };
 

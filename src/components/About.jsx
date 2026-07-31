@@ -27,7 +27,7 @@ const About = () => {
   });
 
   return (
-    <div id="about" className="min-h-screen w-full overflow-hidden">
+    <section id="about" className="min-h-screen w-full overflow-hidden" aria-label="About Section">
       <div className="relative mb-8 mt-36 flex flex-col items-center gap-5">
         <p className="font-general text-sm uppercase md:text-[10px]">
           Welcome to InfantMind.ai
@@ -50,12 +50,14 @@ const About = () => {
         <div className="mask-clip-path about-image">
           <img
             src="img/about-baby.png"
-            alt="Background"
+            alt="InfantMind AI Baby Understanding & Sleep Analysis"
+            loading="lazy"
+            decoding="async"
             className="absolute left-0 top-0 size-full object-cover"
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

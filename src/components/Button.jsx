@@ -1,9 +1,12 @@
 import clsx from "clsx";
 
-const Button = ({ id, title, rightIcon, leftIcon, containerClass }) => {
+const Button = ({ id, title, rightIcon, leftIcon, containerClass, onClick, ariaLabel }) => {
   return (
     <button
       id={id}
+      type="button"
+      onClick={onClick}
+      aria-label={ariaLabel || (typeof title === "string" ? title : undefined)}
       className={clsx(
         "group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full bg-[#dfdff2] px-7 py-3 text-black",
         containerClass

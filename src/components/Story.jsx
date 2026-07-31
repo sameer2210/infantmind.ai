@@ -46,7 +46,7 @@ const FloatingImage = () => {
   };
 
   return (
-    <div id="story" className="min-h-dvh w-full bg-black text-[#dfdff2] overflow-hidden">
+    <section id="story" className="min-h-dvh w-full bg-black text-[#dfdff2] overflow-hidden" aria-label="The Story of a Calm Home">
       <div className="flex size-full flex-col items-center py-10 pb-24">
         <p className="font-general text-sm uppercase md:text-[10px]">
           the parenting journey
@@ -68,7 +68,9 @@ const FloatingImage = () => {
                   onMouseUp={handleMouseLeave}
                   onMouseEnter={handleMouseLeave}
                   src="/img/story-baby.png"
-                  alt="story-baby.png"
+                  alt="InfantMind AI Calm Home Story"
+                  loading="lazy"
+                  decoding="async"
                   className="object-contain"
                 />
               </div>
@@ -118,7 +120,7 @@ const FloatingImage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

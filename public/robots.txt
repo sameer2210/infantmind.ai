@@ -1,0 +1,8 @@
+# InfantMind AI Robots.txt
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://infantmind.ai/sitemap.xml
