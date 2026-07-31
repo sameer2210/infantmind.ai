@@ -58,11 +58,8 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
 
   return (
     <div className="relative size-full">
-      <video
+      <img
         src={src}
-        loop
-        muted
-        autoPlay
         className="absolute left-0 top-0 size-full object-cover object-center"
       />
       <div className="relative z-10 flex size-full flex-col justify-between p-5 text-[#dfdff2]">
@@ -99,28 +96,26 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
 };
 
 const Features = () => (
-  <section className="bg-black pb-52">
+  <section id="features" className="bg-black pb-52">
     <div className="container mx-auto px-3 md:px-10">
       <div className="px-5 py-32">
         <p className="font-circular-web text-lg text-[#dfdff2]">
-          Into the Metagame Layer
+          Advanced Baby Analytics
         </p>
         <p className="max-w-md font-circular-web text-lg text-[#dfdff2] opacity-50">
-          Immerse yourself in a rich and ever-expanding universe where a vibrant
-          array of products converge into an interconnected overlay experience
-          on your world.
+          Immerse yourself in a comprehensive system where AI models converge to provide real-time understanding of your baby's health, sleep, and development.
         </p>
       </div>
 
       <BentoTilt className="bento-tilt_1 relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh]">
         <BentoCard
-          src="videos/feature-1.mp4"
+          src="img/feature-1.png"
           title={
             <>
-              radia<b>n</b>t
+              c<b>r</b>ies
             </>
           }
-          description="A cross-platform metagame app, turning your activities across Web2 and Web3 games into a rewarding adventure."
+          description="An AI audio model that translates your baby's cries into actionable needs—hunger, sleep, or discomfort."
           isComingSoon
         />
       </BentoTilt>
@@ -128,39 +123,39 @@ const Features = () => (
       <div className="grid h-[135vh] w-full grid-cols-2 grid-rows-3 gap-7">
         <BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
           <BentoCard
-            src="videos/feature-2.mp4"
+            src="img/feature-2.png"
             title={
               <>
-                zig<b>m</b>a
+                sl<b>e</b>ep
               </>
             }
-            description="An anime and gaming-inspired NFT collection - the IP primed for expansion."
+            description="Predictive sleep schedules and analytics to help your baby—and you—rest better."
             isComingSoon
           />
         </BentoTilt>
 
         <BentoTilt className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
           <BentoCard
-            src="videos/feature-3.mp4"
+            src="img/feature-3.png"
             title={
               <>
-                n<b>e</b>xus
+                gr<b>o</b>wth
               </>
             }
-            description="A gamified social hub, adding a new dimension of play to social interaction for Web3 communities."
+            description="Track developmental leaps and physical growth based on pediatric guidelines."
             isComingSoon
           />
         </BentoTilt>
 
         <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
           <BentoCard
-            src="videos/feature-4.mp4"
+            src="img/feature-4.png"
             title={
               <>
-                az<b>u</b>l
+                f<b>e</b>ed
               </>
             }
-            description="A cross-world AI Agent - elevating your gameplay to be more fun and productive."
+            description="Smart tracking for nursing, pumping, and bottle feeding with predictive insights."
             isComingSoon
           />
         </BentoTilt>
@@ -176,11 +171,8 @@ const Features = () => (
         </BentoTilt>
 
         <BentoTilt className="bento-tilt_2">
-          <video
-            src="videos/feature-5.mp4"
-            loop
-            muted
-            autoPlay
+          <img
+            src="img/feature-5.png"
             className="size-full object-cover object-center"
           />
         </BentoTilt>
