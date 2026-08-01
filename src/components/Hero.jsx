@@ -141,17 +141,17 @@ const Hero = () => {
           />
         </div>
 
-        <div className="special-font hero-heading absolute bottom-5 right-5 z-40 text-[#dfdff2]">
+        <div className="special-font hero-heading absolute bottom-3 right-3 sm:bottom-5 sm:right-5 z-40 text-[#dfdff2]">
           I<b>N</b>FANT
         </div>
 
         <div className="absolute left-0 top-0 z-40 size-full">
-          <div className="mt-24 px-5 sm:px-10">
+          <div className="mt-20 sm:mt-24 px-4 sm:px-10">
             <div className="special-font hero-heading text-[#dfdff2]">
               de c<b>o</b>de
             </div>
 
-            <p className="mb-5 max-w-64 font-robert-regular text-[#dfdff2]">
+            <p className="mb-5 max-w-64 font-robert-regular text-sm sm:text-base text-[#dfdff2]">
               Understand Every Cry <br /> AI-Powered Baby Insights
             </p>
 
@@ -159,13 +159,19 @@ const Hero = () => {
               id="watch-trailer"
               title="See how it works"
               leftIcon={<TiLocationArrow />}
-              containerClass="bg-yellow-300 flex-center gap-1"
+              onClick={() => {
+                window.open(
+                  encodeURI("/doc/AI-Powered-Baby-Understanding-System (1).pdf"),
+                  "_blank"
+                );
+              }}
+              containerClass="bg-yellow-300 flex-center gap-1 cursor-pointer"
             />
           </div>
         </div>
       </div>
 
-      <div className="special-font hero-heading absolute bottom-5 right-5 text-black">
+      <div className="special-font hero-heading absolute bottom-3 right-3 sm:bottom-5 sm:right-5 text-black">
         I<b>N</b>FANT
       </div>
     </section>

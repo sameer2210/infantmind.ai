@@ -49,7 +49,7 @@ const FloatingImage = () => {
     <section id="story" className="min-h-dvh w-full bg-black text-[#dfdff2] overflow-hidden" aria-label="The Story of a Calm Home">
       <div className="flex size-full flex-col items-center py-10 pb-24">
         <p className="font-general text-sm uppercase md:text-[10px]">
-          the parenting journey
+          Your Parenting Journey, Powered by SpandaVidya AI
         </p>
 
         <div className="relative size-full">
@@ -105,9 +105,9 @@ const FloatingImage = () => {
           </div>
         </div>
 
-        <div className="-mt-80 flex w-full justify-center md:-mt-64 md:me-44 md:justify-end">
+        <div className="-mt-20 sm:-mt-40 flex w-full justify-center md:-mt-64 md:me-44 md:justify-end px-4 sm:px-0">
           <div className="flex h-full w-fit flex-col items-center md:items-start">
-            <p className="mt-3 max-w-sm text-center font-circular-web text-[#dfdff2] md:text-start">
+            <p className="mt-3 max-w-sm text-center font-circular-web text-sm sm:text-base text-[#dfdff2] md:text-start">
               Where AI meets parenting, lies InfantMind and boundless understanding.
               Discover peace of mind and shape a healthier routine.
             </p>

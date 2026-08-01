@@ -74,14 +74,14 @@ const NavBar = () => {
   return (
     <div
       ref={navContainerRef}
-      className="fixed inset-x-0 top-4 z-50 h-16 border-none transition-all duration-700 sm:inset-x-6"
+      className="fixed inset-x-3 top-4 z-50 h-16 border-none transition-all duration-700 sm:inset-x-6"
     >
       <header className="absolute top-1/2 w-full -translate-y-1/2">
-        <nav className="flex size-full items-center justify-between p-4" aria-label="Main Navigation">
+        <nav className="flex size-full items-center justify-between p-3 sm:p-4" aria-label="Main Navigation">
           {/* Logo and Product button */}
-          <div className="flex items-center gap-7">
+          <div className="flex items-center gap-4 sm:gap-7">
             <a href="#" aria-label="InfantMind AI Home">
-              <img src="/img/logo.png" alt="InfantMind AI Logo" className="w-10" />
+              <img src="/img/logo.png" alt="InfantMind AI Logo" className="w-9 sm:w-10" />
             </a>
 
             <Button
@@ -112,7 +112,7 @@ const NavBar = () => {
             <button
               onClick={toggleAudioIndicator}
               aria-label={isAudioPlaying ? "Mute ambient background sound" : "Play ambient background sound"}
-              className="ml-10 flex items-center space-x-0.5"
+              className="ml-4 sm:ml-10 flex min-h-[44px] min-w-[44px] items-center justify-center space-x-0.5 p-2 rounded-lg cursor-pointer"
             >
               <audio
                 ref={audioElementRef}

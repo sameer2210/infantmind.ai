@@ -99,18 +99,18 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
 };
 
 const Features = () => (
-  <section id="features" className="bg-black pb-52" aria-label="InfantMind AI Features">
+  <section id="features" className="bg-black pb-24 sm:pb-52" aria-label="InfantMind AI Features">
     <div className="container mx-auto px-3 md:px-10">
-      <div className="px-5 py-32">
-        <p className="font-circular-web text-lg text-[#dfdff2]">
+      <div className="px-3 sm:px-5 py-16 sm:py-32">
+        <p className="font-circular-web text-base sm:text-lg text-[#dfdff2]">
           Advanced Baby Analytics
         </p>
-        <p className="max-w-md font-circular-web text-lg text-[#dfdff2] opacity-50 mt-1">
+        <p className="max-w-md font-circular-web text-base sm:text-lg text-[#dfdff2] opacity-50 mt-1">
           Immerse yourself in a comprehensive system where AI models converge to provide real-time understanding of your baby's health, sleep, and development.
         </p>
       </div>
 
-      <BentoTilt className="bento-tilt_1 relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh]">
+      <BentoTilt className="bento-tilt_1 relative mb-7 h-80 sm:h-96 w-full overflow-hidden rounded-md md:h-[65vh]">
         <BentoCard
           src="img/feature-1.png"
           title={
@@ -123,8 +123,8 @@ const Features = () => (
         />
       </BentoTilt>
 
-      <div className="grid h-[135vh] w-full grid-cols-2 grid-rows-3 gap-7">
-        <BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
+      <div className="flex flex-col gap-5 md:grid md:h-[135vh] md:w-full md:grid-cols-2 md:grid-rows-3 md:gap-7">
+        <BentoTilt className="bento-tilt_1 h-80 sm:h-96 md:h-full row-span-1 md:col-span-1 md:row-span-2">
           <BentoCard
             src="img/feature-2.png"
             title={
@@ -137,7 +137,7 @@ const Features = () => (
           />
         </BentoTilt>
 
-        <BentoTilt className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
+        <BentoTilt className="bento-tilt_1 h-80 sm:h-96 md:h-full row-span-1 md:col-span-1 md:ms-32">
           <BentoCard
             src="img/feature-3.png"
             title={
@@ -150,7 +150,7 @@ const Features = () => (
           />
         </BentoTilt>
 
-        <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
+        <BentoTilt className="bento-tilt_1 h-80 sm:h-96 md:h-full md:col-span-1 md:me-14">
           <BentoCard
             src="img/feature-4.png"
             title={
@@ -163,17 +163,18 @@ const Features = () => (
           />
         </BentoTilt>
 
-        <BentoTilt className="bento-tilt_2">
-          <div className="flex size-full flex-col justify-between bg-violet-300 p-5">
+        <BentoTilt className="bento-tilt_2 h-48 sm:h-64 md:h-full">
+          <div className="flex size-full flex-col justify-between bg-violet-300 p-8">
             <h2 className="bento-title special-font max-w-56 text-black">
-              M<b>o</b>re co<b>m</b>ing s<b>o</b>on.
+              co<b>m</b>ing s<b>o</b>on.
             </h2>
+
 
             <TiLocationArrow className="m-5 scale-[5] self-end" />
           </div>
         </BentoTilt>
 
-        <BentoTilt className="bento-tilt_2">
+        <BentoTilt className="bento-tilt_2 h-48 sm:h-64 md:h-full">
           <img
             src="img/feature-5.png"
             alt="InfantMind AI Feature Insights"

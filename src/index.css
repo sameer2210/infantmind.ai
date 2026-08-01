@@ -4,9 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
 body {
   width: 100%;
-  /* overflow-x: hidden; */
+  max-width: 100%;
+  overflow-x: hidden;
   background-color: #dfdff0;
   font-family: "General Sans", sans-serif;
   color: #010101;
@@ -62,7 +64,7 @@ body {
   }
 
   .floating-nav {
-    @apply bg-black rounded-lg border;
+    @apply rounded-lg border;
   }
 
   .absolute-center {
@@ -84,19 +86,19 @@ body {
   }
 
   .hero-heading {
-    @apply uppercase font-zentry font-thin text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[10rem];
+    @apply uppercase font-zentry font-thin text-4xl sm:text-7xl md:text-9xl lg:text-[10rem];
   }
 
   .about-subtext {
-    @apply absolute bottom-[-90dvh] left-1/2 w-full max-w-96 -translate-x-1/2 text-center font-circular-web text-lg md:max-w-[34rem];
+    @apply absolute bottom-[-80vh] sm:bottom-[-90dvh] left-1/2 w-full max-w-[calc(100vw-2rem)] px-4 sm:max-w-96 -translate-x-1/2 text-center font-circular-web text-base sm:text-lg md:max-w-[34rem];
   }
 
   .about-image {
-    @apply absolute left-1/2 top-0 z-20 h-[60vh] w-96 origin-center -translate-x-1/2 overflow-hidden rounded-3xl md:w-[30vw];
+    @apply absolute left-1/2 top-0 z-20 h-[60vh] w-[calc(100vw-2rem)] max-w-96 origin-center -translate-x-1/2 overflow-hidden rounded-3xl sm:w-96 md:w-[30vw];
   }
 
   .animated-title {
-    @apply flex flex-col gap-1 text-6xl uppercase leading-[.8] text-[#dfdff2] sm:px-32 md:text-[5rem];
+    @apply flex flex-col gap-1 text-4xl sm:text-6xl uppercase leading-[.8] text-[#dfdff2] sm:px-32 md:text-[5rem];
   }
 
   .animated-word {
@@ -115,7 +117,7 @@ body {
   }
 
   .bento-title {
-    @apply uppercase md:text-[55px] leading-[0.85] text-4xl font-thin font-zentry;
+    @apply uppercase md:text-[55px] leading-[0.85] text-3xl sm:text-4xl font-thin font-zentry;
   }
 
   .story-img-container {
@@ -129,7 +131,7 @@ body {
   }
 
   .story-img-content {
-    @apply absolute w-full md:h-dvh h-[50dvh] opacity-100 left-10 top-16 md:left-0 md:top-10 lg:left-[-300px] lg:top-[-100px];
+    @apply absolute w-full md:h-dvh h-[50dvh] opacity-100 left-0 top-16 md:left-0 md:top-10 lg:left-[-300px] lg:top-[-100px];
     transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0) scale(1);
   }
 

@@ -8,7 +8,7 @@ const Button = ({ id, title, rightIcon, leftIcon, containerClass, onClick, ariaL
       onClick={onClick}
       aria-label={ariaLabel || (typeof title === "string" ? title : undefined)}
       className={clsx(
-        "group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full bg-[#dfdff2] px-7 py-3 text-black",
+        "group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full bg-[#dfdff2] px-7 py-3 min-h-[44px] text-black max-w-full",
         containerClass
       )}
     >
