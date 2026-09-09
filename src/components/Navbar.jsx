@@ -1,142 +1,113 @@
-import clsx from "clsx";
-import gsap from "gsap";
-import { useEffect, useRef, useState } from "react";
-import { TiLocationArrow } from "react-icons/ti";
-import { useWindowScroll } from "react-use";
+import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { FiArrowUpRight, FiMenu, FiX } from 'react-icons/fi';
 
-import Button from "./Button";
-
-const navItems = ["About", "Features", "Story", "Contact"];
-
-const NavBar = () => {
-  // State for toggling audio and visual indicator
-  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-  const [isIndicatorActive, setIsIndicatorActive] = useState(false);
-
-  // Refs for audio and navigation container
-  const audioElementRef = useRef(null);
-  const navContainerRef = useRef(null);
-
-  const { y: currentScrollY } = useWindowScroll();
-  const [isNavVisible, setIsNavVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  // Toggle audio and visual indicator
-  const toggleAudioIndicator = () => {
-    setIsAudioPlaying((prev) => !prev);
-    setIsIndicatorActive((prev) => !prev);
-  };
+const Navbar = ({ onOpenPilot }) => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (isAudioPlaying && audioElementRef.current) {
-      audioElementRef.current.play().catch(() => {});
-    }
+    const handleScroll = () => {
+      if (window.scrollY > 40) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Manage audio playback
-  useEffect(() => {
-    if (!audioElementRef.current) return;
-    if (isAudioPlaying) {
-      audioElementRef.current.play().catch(() => {});
-    } else {
-      audioElementRef.current.pause();
-    }
-  }, [isAudioPlaying]);
-
-  useEffect(() => {
-    if (!navContainerRef.current) return;
-    if (currentScrollY === 0) {
-      // Topmost position: show navbar without floating-nav
-      setIsNavVisible(true);
-      navContainerRef.current.classList.remove("floating-nav");
-    } else if (currentScrollY > lastScrollY) {
-      // Scrolling down: hide navbar and apply floating-nav
-      setIsNavVisible(false);
-      navContainerRef.current.classList.add("floating-nav");
-    } else if (currentScrollY < lastScrollY) {
-      // Scrolling up: show navbar with floating-nav
-      setIsNavVisible(true);
-      navContainerRef.current.classList.add("floating-nav");
-    }
-
-    setLastScrollY(currentScrollY);
-  }, [currentScrollY, lastScrollY]);
-
-  useEffect(() => {
-    if (!navContainerRef.current) return;
-    gsap.to(navContainerRef.current, {
-      y: isNavVisible ? 0 : -100,
-      opacity: isNavVisible ? 1 : 0,
-      duration: 0.2,
-    });
-  }, [isNavVisible]);
+  const navLinks = [
+    { name: 'Understanding', href: '#story' },
+    { name: 'Technology', href: '#redefining' },
+    { name: 'How It Works', href: '#breakthrough' },
+    { name: 'Market', href: '#market' },
+    { name: 'Research', href: '#research' },
+    { name: 'Challenges', href: '#challenges' },
+  ];
 
   return (
-    <div
-      ref={navContainerRef}
-      className="fixed inset-x-3 top-4 z-50 h-16 border-none transition-all duration-700 sm:inset-x-6"
-    >
-      <header className="absolute top-1/2 w-full -translate-y-1/2">
-        <nav className="flex size-full items-center justify-between p-3 sm:p-4" aria-label="Main Navigation">
-          {/* Logo and Product button */}
-          <div className="flex items-center gap-4 sm:gap-7">
-            <a href="#" aria-label="InfantMind AI Home">
-              <img src="/img/logo.png" alt="InfantMind AI Logo" className="w-9 sm:w-10" />
-            </a>
+    <>
+      <header className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 transition-all duration-300">
+        <div className={`w-full max-w-6xl nav-capsule rounded-full px-6 py-3.5 flex items-center justify-between transition-all duration-300 ${scrolled ? 'bg-[#0c0d10]/90 border-white/20 shadow-2xl' : 'bg-[#0c0d10]/60 border-white/10'}`}>
+          {/* Logo */}
+          <a href="#" className="flex items-center gap-3 group">
+            <span className="w-2.5 h-2.5 rounded-full bg-rose-500 group-hover:scale-125 transition-transform" />
+            <span className="font-display text-lg font-bold tracking-tight text-white">INFANTMIND</span>
+          </a>
 
-            <Button
-              id="product-button"
-              title="Products"
-              rightIcon={<TiLocationArrow />}
-              onClick={() => {
-    window.location.href = "https://www.spandavidyaai.com/#contact";
-  }}
-              containerClass="bg-[#dfdff2] md:flex hidden items-center justify-center gap-1"
-            />
-          </div>
+          {/* Desktop Navigation Links */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-xs uppercase tracking-widest text-slate-400 hover:text-white transition-colors duration-200"
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
 
-          {/* Navigation Links and Audio Button */}
-          <div className="flex h-full items-center">
-            <div className="hidden md:block">
-              {navItems.map((item, index) => (
-                <a
-                  key={index}
-                  href={`#${item.toLowerCase()}`}
-                  className="nav-hover-btn"
-                >
-                  {item}
-                </a>
-              ))}
-            </div>
-
+          {/* Right Action CTA */}
+          <div className="hidden sm:flex items-center gap-4">
             <button
-              onClick={toggleAudioIndicator}
-              aria-label={isAudioPlaying ? "Mute ambient background sound" : "Play ambient background sound"}
-              className="ml-4 sm:ml-10 flex min-h-[44px] min-w-[44px] items-center justify-center space-x-0.5 p-2 rounded-lg cursor-pointer"
+              onClick={onOpenPilot}
+              className="px-5 py-2 rounded-full bg-white text-black text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 hover:bg-rose-500 hover:text-white transition-all duration-300 group"
             >
-              <audio
-                ref={audioElementRef}
-                className="hidden"
-                src="/audio/loop.mp3"
-                loop
-              />
-              {[1, 2, 3, 4].map((bar) => (
-                <div
-                  key={bar}
-                  className={clsx("indicator-line", {
-                    active: isIndicatorActive,
-                  })}
-                  style={{
-                    animationDelay: `${bar * 0.1}s`,
-                  }}
-                />
-              ))}
+              <span>Explore InfantMind</span>
+              <FiArrowUpRight className="text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </button>
           </div>
-        </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden text-white p-1 text-xl focus:outline-none"
+            aria-label="Toggle Navigation Menu"
+          >
+            {mobileMenuOpen ? <FiX /> : <FiMenu />}
+          </button>
+        </div>
       </header>
-    </div>
+
+      {/* Mobile Fullscreen Menu */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-40 bg-[#07080a] flex flex-col justify-between p-8 pt-28 md:hidden border-b border-white/10">
+          <div className="flex flex-col gap-6">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="font-display text-2xl font-semibold text-slate-200 hover:text-rose-500 transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+
+          <div className="pt-8 border-t border-white/10 space-y-4">
+            <button
+              onClick={() => { setMobileMenuOpen(false); onOpenPilot(); }}
+              className="w-full py-3.5 rounded-full bg-white text-black font-semibold text-sm flex items-center justify-center gap-2 hover:bg-slate-200 transition"
+            >
+              <span>Explore InfantMind</span>
+              <FiArrowUpRight />
+            </button>
+            <p className="text-center font-mono text-xs text-slate-500 uppercase tracking-widest">
+              AI-POWERED BABY UNDERSTANDING SYSTEM
+            </p>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
-export default NavBar;
+Navbar.propTypes = {
+  onOpenPilot: PropTypes.func.isRequired,
+};
+
+export default Navbar;
