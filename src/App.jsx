@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRoute } from './hooks/useRoute';
+import SeoHead from './components/SeoHead';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Story2AM from './components/Story2AM';
@@ -14,6 +15,7 @@ import CinematicCTA from './components/CinematicCTA';
 import Footer from './components/Footer';
 import PilotDrawer from './components/PilotDrawer';
 import InfantMindProductPage from './pages/InfantMindProductPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 const App = () => {
   const { currentPath, navigate } = useRoute();
@@ -23,7 +25,8 @@ const App = () => {
     window.scrollTo(0, 0);
   }, [currentPath]);
 
-  const isProductPage = currentPath === '/products/infantmind';
+  const isHome = currentPath === '/' || currentPath === '' || currentPath.startsWith('/#');
+  const isProductPage = currentPath === '/products/infantmind' || currentPath === '/products/infantmind/';
 
   return (
     <main className="relative min-h-screen w-full bg-[#07080a] text-white selection:bg-rose-500 selection:text-white">
@@ -35,8 +38,17 @@ const App = () => {
 
       {isProductPage ? (
         <InfantMindProductPage onOpenPilot={() => setPilotOpen(true)} />
-      ) : (
+      ) : isHome ? (
         <>
+          {/* Homepage Unique SEO Metadata */}
+          <SeoHead
+            title="InfantMind AI — AI-Powered Baby Understanding Platform"
+            description="Every cry has a meaning — we decode it. InfantMind combines video, acoustic, and thermal sensors in a smart mosquito net to provide actionable baby insights."
+            canonicalUrl="https://infantmind.ai/"
+            ogType="website"
+            ogImage="https://infantmind.ai/img/hero-net.jpg"
+          />
+
           <Hero onOpenPilot={() => setPilotOpen(true)} />
           <Story2AM />
           <RedefiningCare />
@@ -49,6 +61,8 @@ const App = () => {
           <CinematicCTA onOpenPilot={() => setPilotOpen(true)} />
           <Footer onOpenPilot={() => setPilotOpen(true)} />
         </>
+      ) : (
+        <NotFoundPage navigate={navigate} />
       )}
 
       <PilotDrawer isOpen={pilotOpen} onClose={() => setPilotOpen(false)} />

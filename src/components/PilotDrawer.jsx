@@ -1,10 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FiX, FiCheck, FiArrowRight } from 'react-icons/fi';
 
 const PilotDrawer = ({ isOpen, onClose }) => {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', role: 'Parent', location: '' });
+
+  // Escape key press handler & body scroll lock
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -14,16 +35,22 @@ const PilotDrawer = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex justify-end bg-black/80 backdrop-blur-md transition-opacity">
-      <div className="relative w-full max-w-lg bg-[#0c0d10] border-l border-white/10 p-8 flex flex-col justify-between overflow-y-auto">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="drawer-title"
+      className="fixed inset-0 z-[100] flex justify-end bg-black/80 backdrop-blur-md transition-opacity"
+    >
+      <div className="relative w-full max-w-lg bg-[#0c0d10] border-l border-white/10 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto max-h-screen">
         <div>
-          <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-8">
+          <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-6">
             <div className="flex items-center gap-3">
               <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse" />
               <span className="font-mono text-xs tracking-widest text-slate-400 uppercase">PILOT PROGRAM ACCESS</span>
             </div>
             <button
               onClick={onClose}
+              aria-label="Close modal"
               className="p-2 rounded-full border border-white/10 hover:bg-white/10 transition text-slate-400 hover:text-white"
             >
               <FiX className="text-xl" />
@@ -49,16 +76,17 @@ const PilotDrawer = ({ isOpen, onClose }) => {
           ) : (
             <div>
               <div className="mb-6">
-                <h2 className="font-display text-3xl font-bold text-white mb-2">Explore InfantMind</h2>
-                <p className="text-slate-400 text-sm leading-relaxed">
+                <h2 id="drawer-title" className="font-display text-2xl sm:text-3xl font-bold text-white mb-2">Explore InfantMind</h2>
+                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
                   Join our exclusive early-access cohort and pediatrician network for the world&apos;s first AI-powered baby understanding system.
                 </p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block font-mono text-xs text-slate-400 uppercase tracking-wider mb-2">Full Name</label>
+                  <label htmlFor="pilot-name" className="block font-mono text-xs text-slate-400 uppercase tracking-wider mb-2">Full Name</label>
                   <input
+                    id="pilot-name"
                     type="text"
                     required
                     placeholder="Enter your name"
@@ -69,8 +97,9 @@ const PilotDrawer = ({ isOpen, onClose }) => {
                 </div>
 
                 <div>
-                  <label className="block font-mono text-xs text-slate-400 uppercase tracking-wider mb-2">Email Address</label>
+                  <label htmlFor="pilot-email" className="block font-mono text-xs text-slate-400 uppercase tracking-wider mb-2">Email Address</label>
                   <input
+                    id="pilot-email"
                     type="email"
                     required
                     placeholder="name@example.com"
@@ -81,8 +110,9 @@ const PilotDrawer = ({ isOpen, onClose }) => {
                 </div>
 
                 <div>
-                  <label className="block font-mono text-xs text-slate-400 uppercase tracking-wider mb-2">I am a</label>
+                  <label htmlFor="pilot-role" className="block font-mono text-xs text-slate-400 uppercase tracking-wider mb-2">I am a</label>
                   <select
+                    id="pilot-role"
                     value={formData.role}
                     onChange={(e) => setFormData({ ...formData, role: e.target.value })}
                     className="w-full bg-[#121316] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-rose-500 transition"
@@ -95,8 +125,9 @@ const PilotDrawer = ({ isOpen, onClose }) => {
                 </div>
 
                 <div>
-                  <label className="block font-mono text-xs text-slate-400 uppercase tracking-wider mb-2">City / Location</label>
+                  <label htmlFor="pilot-location" className="block font-mono text-xs text-slate-400 uppercase tracking-wider mb-2">City / Location</label>
                   <input
+                    id="pilot-location"
                     type="text"
                     placeholder="e.g. Mumbai, Bengaluru"
                     value={formData.location}
@@ -117,8 +148,8 @@ const PilotDrawer = ({ isOpen, onClose }) => {
           )}
         </div>
 
-        <div className="pt-8 border-t border-white/10 text-center">
-          <p className="font-mono text-xs text-slate-500 uppercase tracking-widest">
+        <div className="pt-6 border-t border-white/10 text-center">
+          <p className="font-mono text-[10px] text-slate-500 uppercase tracking-widest">
             Privacy-First Architecture • Encrypted Data Layer
           </p>
         </div>

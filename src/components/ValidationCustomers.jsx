@@ -19,15 +19,15 @@ const ValidationCustomers = () => {
   ];
 
   return (
-    <section id="validation" className="relative w-full bg-[#07080a] text-white py-32 px-6 sm:px-12 border-t border-white/10">
-      <div className="max-w-7xl mx-auto space-y-16">
+    <section id="validation" className="relative w-full bg-[#07080a] text-white py-12 sm:py-20 md:py-32 px-4 sm:px-12 border-t border-white/10">
+      <div className="max-w-7xl mx-auto space-y-10 sm:space-y-16">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div className="space-y-3">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6">
+          <div className="space-y-2 sm:space-y-3">
             <div className="pill-badge border-white/10 bg-white/[0.03] text-slate-300">
               <span>07 / STRATEGIC POSITIONING</span>
             </div>
-            <h2 className="font-display text-4xl sm:text-6xl font-bold tracking-tight uppercase leading-[0.95] text-white">
+            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight uppercase leading-[0.98] text-white">
               MARKET VALIDATION<br />
               <span className="text-slate-400">& TARGET SEGMENTS</span>
             </h2>
@@ -37,7 +37,7 @@ const ValidationCustomers = () => {
           <div className="flex gap-2 p-1.5 rounded-full glass-card border border-white/10 self-start md:self-auto">
             <button
               onClick={() => setActiveTab('VALIDATION')}
-              className={`px-4 py-2 rounded-full text-xs font-mono tracking-wider transition ${
+              className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-mono tracking-wider transition ${
                 activeTab === 'VALIDATION' ? 'bg-rose-500 text-white font-bold' : 'text-slate-400 hover:text-white'
               }`}
             >
@@ -45,7 +45,7 @@ const ValidationCustomers = () => {
             </button>
             <button
               onClick={() => setActiveTab('SEGMENTS')}
-              className={`px-4 py-2 rounded-full text-xs font-mono tracking-wider transition ${
+              className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-mono tracking-wider transition ${
                 activeTab === 'SEGMENTS' ? 'bg-rose-500 text-white font-bold' : 'text-slate-400 hover:text-white'
               }`}
             >
@@ -55,9 +55,9 @@ const ValidationCustomers = () => {
         </div>
 
         {activeTab === 'VALIDATION' ? (
-          <div className="space-y-12">
-            {/* Competitor Matrix Grid */}
-            <div className="overflow-x-auto">
+          <div className="space-y-8 sm:space-y-12">
+            {/* Desktop Competitor Matrix Table (Hidden on Mobile) */}
+            <div className="hidden sm:block overflow-x-auto">
               <table className="w-full text-left border-collapse min-w-[600px]">
                 <thead>
                   <tr className="border-b border-white/10 font-mono text-xs text-slate-400 uppercase tracking-widest">
@@ -83,9 +83,28 @@ const ValidationCustomers = () => {
               </table>
             </div>
 
+            {/* Mobile Stacked Competitor Cards (Visible on Mobile Only) */}
+            <div className="block sm:hidden space-y-4">
+              {competitors.map((c, i) => (
+                <div key={i} className="glass-card rounded-2xl p-5 border border-white/10 space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="font-display text-lg font-bold text-white">{c.company}</span>
+                    <span className="font-mono text-[10px] text-rose-400 border border-rose-500/30 px-2 py-0.5 rounded-full">
+                      {c.metrics}
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-300">{c.focus}</p>
+                  <div className="pt-2 border-t border-white/10 flex items-center gap-2 text-xs text-slate-400">
+                    <FiX className="text-rose-500 shrink-0" />
+                    <span>GAP: {c.gap}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
             {/* Others vs InfantMind Contrast Banner */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 rounded-3xl bg-[#0c0d10] border border-white/10">
-              <div className="space-y-3 p-6 rounded-2xl bg-white/[0.02] border border-white/5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#0c0d10] border border-white/10">
+              <div className="space-y-3 p-5 sm:p-6 rounded-xl sm:rounded-2xl bg-white/[0.02] border border-white/5">
                 <span className="font-mono text-xs text-slate-400 uppercase tracking-widest block">EXISTING MONITORS ❌</span>
                 <ul className="space-y-2 text-xs text-slate-400 font-mono">
                   <li>• Camera feed without context</li>
@@ -95,7 +114,7 @@ const ValidationCustomers = () => {
                 </ul>
               </div>
 
-              <div className="space-y-3 p-6 rounded-2xl bg-rose-500/10 border border-rose-500/30">
+              <div className="space-y-3 p-5 sm:p-6 rounded-xl sm:rounded-2xl bg-rose-500/10 border border-rose-500/30">
                 <span className="font-mono text-xs text-rose-400 uppercase tracking-widest block">INFANTMIND APPROACH ✅</span>
                 <ul className="space-y-2 text-xs text-slate-200 font-mono font-medium">
                   <li>• Multimodal AI (Vision + Audio + Thermal)</li>
@@ -106,32 +125,32 @@ const ValidationCustomers = () => {
               </div>
             </div>
 
-            <div className="text-center font-mono text-xs text-slate-400 uppercase tracking-widest">
+            <div className="text-center font-mono text-[10px] sm:text-xs text-slate-400 uppercase tracking-widest">
               &quot;We are not competing with these companies — we are building the next layer on top of this industry.&quot;
             </div>
           </div>
         ) : (
-          <div className="space-y-12">
-            {/* Customer Segments Bar Layout */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="space-y-8 sm:space-y-12">
+            {/* Customer Segments Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {segments.map((s, idx) => (
-                <div key={idx} className="glass-card rounded-3xl p-6 border border-white/10 space-y-4 flex flex-col justify-between">
+                <div key={idx} className="glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-white/10 space-y-3 sm:space-y-4 flex flex-col justify-between">
                   <div>
-                    <span className="font-mono text-[10px] text-rose-400 uppercase tracking-widest border border-rose-500/30 px-2.5 py-0.5 rounded-full inline-block mb-3">
+                    <span className="font-mono text-[9px] sm:text-[10px] text-rose-400 uppercase tracking-widest border border-rose-500/30 px-2.5 py-0.5 rounded-full inline-block mb-2 sm:mb-3">
                       {s.label}
                     </span>
-                    <h4 className="font-display text-lg font-bold text-white mb-1">{s.title}</h4>
-                    <div className="font-display text-4xl font-bold text-rose-500 mb-2">{s.percent}</div>
+                    <h4 className="font-display text-base sm:text-lg font-bold text-white mb-1">{s.title}</h4>
+                    <div className="font-display text-3xl sm:text-4xl font-bold text-rose-500 mb-1.5">{s.percent}</div>
                     <p className="text-xs text-slate-400 leading-relaxed">{s.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* Future Expansion Roadmap Tiles */}
-            <div className="p-8 rounded-3xl bg-[#0c0d10] border border-white/10 space-y-6">
+            {/* Future Expansion Roadmap */}
+            <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#0c0d10] border border-white/10 space-y-4 sm:space-y-6">
               <span className="font-mono text-xs text-slate-400 uppercase tracking-widest block">FUTURE MARKET EXPANSION</span>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-xs text-slate-300">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 font-mono text-xs text-slate-300">
                 <div className="p-4 rounded-xl bg-white/[0.02] border border-white/10 space-y-1">
                   <span className="text-rose-400 font-bold block">01 / LITE VERSION</span>
                   <span>Cheaper ₹5–7K device to capture broader mass market</span>

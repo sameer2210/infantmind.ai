@@ -5,33 +5,78 @@ import { FiArrowUpRight, FiMenu, FiX } from 'react-icons/fi';
 const Navbar = ({ onOpenPilot, navigate, currentPath }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 40) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 30);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Section Observer for Active Nav Highlighting
+  useEffect(() => {
+    if (currentPath === '/products/infantmind') {
+      setActiveSection('products');
+      return;
+    }
+
+    const sectionIds = ['story', 'redefining', 'research', 'market', 'challenges'];
+    const handleObserver = () => {
+      const scrollPosition = window.scrollY + 200;
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sectionIds[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sectionIds[i]);
+          return;
+        }
+      }
+      setActiveSection('home');
+    };
+
+    window.addEventListener('scroll', handleObserver);
+    return () => window.removeEventListener('scroll', handleObserver);
+  }, [currentPath]);
+
+  // Lock body scroll and handle Escape key for mobile menu
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [mobileMenuOpen]);
+
   const isProductPage = currentPath === '/products/infantmind';
 
   const handleNavClick = (e, href, isRoute = false) => {
     e.preventDefault();
+    if (mobileMenuOpen) {
+      setMobileMenuOpen(false);
+    }
+
     if (isRoute) {
       navigate(href);
     } else {
       if (isProductPage) {
-        // If on product page, go home first then scroll
         navigate('/');
         setTimeout(() => {
           const el = document.querySelector(href);
           if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
+        }, 120);
       } else {
         const el = document.querySelector(href);
         if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -39,145 +84,171 @@ const Navbar = ({ onOpenPilot, navigate, currentPath }) => {
     }
   };
 
+  const navItems = [
+    { id: 'story', label: 'Understanding', href: '#story' },
+    { id: 'redefining', label: 'Technology', href: '#redefining' },
+    { id: 'products', label: 'Products', href: '/products/infantmind', isRoute: true },
+    { id: 'research', label: 'Research', href: '#research' },
+    { id: 'market', label: 'Market', href: '#market' },
+    { id: 'challenges', label: 'Challenges', href: '#challenges' },
+  ];
+
   return (
     <>
-      <header className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 transition-all duration-300">
-        <div className={`w-full max-w-6xl nav-capsule rounded-full px-6 py-3.5 flex items-center justify-between transition-all duration-300 ${scrolled ? 'bg-[#0c0d10]/95 border-white/20 shadow-2xl backdrop-blur-2xl' : 'bg-[#0c0d10]/70 border-white/10'}`}>
-          {/* Logo */}
+      {/* Floating Header Container matching Reference UI */}
+      <header className="fixed top-3 sm:top-5 left-0 right-0 z-50 px-4 sm:px-8 transition-all duration-300">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+          
+          {/* LEFT: Standalone Brand Identity */}
           <a
             href="/"
             onClick={(e) => handleNavClick(e, '/', true)}
-            className="flex items-center gap-3 group cursor-pointer"
+            className="flex items-center gap-2.5 group shrink-0 cursor-pointer py-2 px-3 rounded-full bg-[#0c0d10]/60 border border-white/10 backdrop-blur-md hover:bg-[#0c0d10]/80 transition"
+            aria-label="InfantMind AI Home"
           >
             <span className="w-2.5 h-2.5 rounded-full bg-rose-500 group-hover:scale-125 transition-transform" />
-            <span className="font-display text-lg font-bold tracking-tight text-white">INFANTMIND</span>
+            <span className="font-display text-base sm:text-lg font-bold tracking-tight text-white uppercase">INFANTMIND</span>
           </a>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-7">
-            <a
-              href="#story"
-              onClick={(e) => handleNavClick(e, '#story')}
-              className="text-xs uppercase tracking-widest text-slate-400 hover:text-white transition-colors duration-200"
-            >
-              Understanding
-            </a>
-            <a
-              href="#redefining"
-              onClick={(e) => handleNavClick(e, '#redefining')}
-              className="text-xs uppercase tracking-widest text-slate-400 hover:text-white transition-colors duration-200"
-            >
-              Technology
-            </a>
-
-            {/* REAL PRODUCTS ROUTE LINK */}
-            <a
-              href="/products/infantmind"
-              onClick={(e) => handleNavClick(e, '/products/infantmind', true)}
-              className={`text-xs uppercase tracking-widest transition-colors duration-200 flex items-center gap-1 font-bold ${
-                isProductPage ? 'text-rose-400 border-b-2 border-rose-500 pb-0.5' : 'text-slate-300 hover:text-white'
-              }`}
-            >
-              <span>Products</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-rose-500 inline-block" />
-            </a>
-
-            <a
-              href="#research"
-              onClick={(e) => handleNavClick(e, '#research')}
-              className="text-xs uppercase tracking-widest text-slate-400 hover:text-white transition-colors duration-200"
-            >
-              Research
-            </a>
-            <a
-              href="#market"
-              onClick={(e) => handleNavClick(e, '#market')}
-              className="text-xs uppercase tracking-widest text-slate-400 hover:text-white transition-colors duration-200"
-            >
-              Market
-            </a>
-            <a
-              href="#challenges"
-              onClick={(e) => handleNavClick(e, '#challenges')}
-              className="text-xs uppercase tracking-widest text-slate-400 hover:text-white transition-colors duration-200"
-            >
-              Challenges
-            </a>
+          {/* CENTER: Floating Capsule Pill (Only Nav Links) */}
+          <nav
+            aria-label="Main Navigation"
+            className={`hidden lg:flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-full border transition-all duration-300 ${
+              scrolled
+                ? 'bg-[#0c0d10]/95 border-white/20 shadow-2xl backdrop-blur-2xl'
+                : 'bg-[#0c0d10]/80 border-white/10 backdrop-blur-xl shadow-lg'
+            }`}
+          >
+            {navItems.map((item) => {
+              const isActive = activeSection === item.id || (item.isRoute && isProductPage);
+              return (
+                <a
+                  key={item.id}
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href, item.isRoute)}
+                  aria-current={isActive ? 'page' : undefined}
+                  className={`text-xs font-mono tracking-wider transition-all duration-200 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 ${
+                    isActive
+                      ? 'bg-white/10 text-white font-semibold shadow-inner border border-white/10'
+                      : 'text-slate-400 hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  <span>{item.label}</span>
+                  {item.isRoute && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-500 inline-block" />
+                  )}
+                </a>
+              );
+            })}
           </nav>
 
-          {/* Right Action CTA */}
-          <div className="hidden sm:flex items-center gap-4">
+          {/* RIGHT: Action Group (Spandavidya AI + Primary CTA) */}
+          <div className="flex items-center gap-2.5 shrink-0">
+            {/* Secondary Parent Link */}
+            <a
+              href="https://www.spandavidyaai.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden xl:flex items-center gap-1 px-3 py-1.5 rounded-full font-mono text-[11px] text-rose-400/90 hover:text-rose-300 hover:bg-rose-500/10 border border-transparent hover:border-rose-500/30 transition-all duration-200"
+              title="Visit Parent Company: Spandavidya AI"
+            >
+              <span>Spandavidya AI</span>
+              <FiArrowUpRight className="text-xs" />
+            </a>
+
+            {/* Primary CTA */}
             <button
               onClick={onOpenPilot}
-              className="px-5 py-2 rounded-full bg-white text-black text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 hover:bg-rose-500 hover:text-white transition-all duration-300 group shadow-md"
+              className="hidden sm:flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-full bg-white text-black font-semibold text-xs uppercase tracking-wider hover:bg-rose-500 hover:text-white transition-all duration-300 shadow-md group"
             >
               <span>Explore InfantMind</span>
               <FiArrowUpRight className="text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </button>
-          </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-white p-1 text-xl focus:outline-none"
-            aria-label="Toggle Navigation Menu"
-          >
-            {mobileMenuOpen ? <FiX /> : <FiMenu />}
-          </button>
+            {/* Mobile / Tablet Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden text-white p-2.5 rounded-full bg-[#0c0d10]/80 border border-white/10 backdrop-blur-md hover:bg-white/10 transition focus:outline-none"
+              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
+            >
+              {mobileMenuOpen ? <FiX className="text-lg" /> : <FiMenu className="text-lg" />}
+            </button>
+          </div>
         </div>
       </header>
 
-      {/* Mobile Fullscreen Menu */}
+      {/* Mobile / Tablet Fullscreen Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#07080a] flex flex-col justify-between p-8 pt-28 md:hidden border-b border-white/10">
-          <div className="flex flex-col gap-6">
-            <a
-              href="/"
-              onClick={(e) => { setMobileMenuOpen(false); handleNavClick(e, '/', true); }}
-              className="font-display text-2xl font-semibold text-slate-200 hover:text-rose-500 transition-colors"
-            >
-              Home
-            </a>
-            <a
-              href="/products/infantmind"
-              onClick={(e) => { setMobileMenuOpen(false); handleNavClick(e, '/products/infantmind', true); }}
-              className="font-display text-2xl font-bold text-rose-400 hover:text-rose-300 transition-colors flex items-center justify-between"
-            >
-              <span>Products (Smart Net)</span>
-              <FiArrowUpRight />
-            </a>
-            <a
-              href="#story"
-              onClick={(e) => { setMobileMenuOpen(false); handleNavClick(e, '#story'); }}
-              className="font-display text-xl font-medium text-slate-300 hover:text-rose-500 transition-colors"
-            >
-              Understanding
-            </a>
-            <a
-              href="#redefining"
-              onClick={(e) => { setMobileMenuOpen(false); handleNavClick(e, '#redefining'); }}
-              className="font-display text-xl font-medium text-slate-300 hover:text-rose-500 transition-colors"
-            >
-              Technology
-            </a>
-            <a
-              href="#market"
-              onClick={(e) => { setMobileMenuOpen(false); handleNavClick(e, '#market'); }}
-              className="font-display text-xl font-medium text-slate-300 hover:text-rose-500 transition-colors"
-            >
-              Market & Business
-            </a>
+        <div
+          id="mobile-navigation"
+          className="fixed inset-0 z-40 bg-[#07080a]/98 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-10 pt-28 lg:hidden border-b border-white/10 overflow-y-auto font-sans"
+        >
+          {/* Header Bar inside Menu */}
+          <div className="flex flex-col gap-4">
+            <span className="font-mono text-[10px] text-rose-400 uppercase tracking-widest block pb-2 border-b border-white/10">
+              NAVIGATION DIRECTORY
+            </span>
+
+            <div className="flex flex-col gap-3">
+              <a
+                href="/"
+                onClick={(e) => handleNavClick(e, '/', true)}
+                className={`font-display text-2xl font-semibold tracking-tight transition-colors ${
+                  !isProductPage ? 'text-white' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                Home
+              </a>
+
+              {navItems.map((item) => {
+                const isActive = activeSection === item.id || (item.isRoute && isProductPage);
+                return (
+                  <a
+                    key={item.id}
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href, item.isRoute)}
+                    className={`font-display text-xl sm:text-2xl tracking-tight transition-colors flex items-center justify-between py-1 ${
+                      isActive ? 'text-rose-400 font-bold' : 'text-slate-300 hover:text-white'
+                    }`}
+                  >
+                    <span>{item.label}</span>
+                    {item.isRoute && (
+                      <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/40">
+                        PRODUCT PAGE
+                      </span>
+                    )}
+                  </a>
+                );
+              })}
+            </div>
           </div>
 
-          <div className="pt-8 border-t border-white/10 space-y-4">
+          {/* Bottom Action Section inside Mobile Menu */}
+          <div className="pt-8 border-t border-white/10 space-y-3 mt-8">
+            <a
+              href="https://www.spandavidyaai.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-3 rounded-full border border-rose-500/40 bg-rose-500/10 text-rose-300 font-mono text-xs font-semibold tracking-wider flex items-center justify-center gap-2 hover:bg-rose-500 hover:text-white transition"
+            >
+              <span>Spandavidya AI (Parent Company)</span>
+              <FiArrowUpRight />
+            </a>
+
             <button
-              onClick={() => { setMobileMenuOpen(false); onOpenPilot(); }}
-              className="w-full py-3.5 rounded-full bg-white text-black font-semibold text-sm flex items-center justify-center gap-2 hover:bg-slate-200 transition"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenPilot();
+              }}
+              className="w-full py-3.5 rounded-full bg-white text-black font-semibold text-sm flex items-center justify-center gap-2 hover:bg-rose-500 hover:text-white transition-all shadow-xl"
             >
               <span>Explore InfantMind</span>
               <FiArrowUpRight />
             </button>
-            <p className="text-center font-mono text-xs text-slate-500 uppercase tracking-widest">
+
+            <p className="text-center font-mono text-[10px] text-slate-500 uppercase tracking-widest pt-2">
               AI-POWERED BABY UNDERSTANDING SYSTEM
             </p>
           </div>
