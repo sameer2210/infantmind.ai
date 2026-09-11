@@ -11,6 +11,7 @@ import MarketEconomics from './components/MarketEconomics';
 import ValidationCustomers from './components/ValidationCustomers';
 import ResearchTimeline from './components/ResearchTimeline';
 import ChallengesSection from './components/ChallengesSection';
+import AppDownloadSection from './components/AppDownloadSection';
 import CinematicCTA from './components/CinematicCTA';
 import Footer from './components/Footer';
 import PilotDrawer from './components/PilotDrawer';
@@ -58,6 +59,7 @@ const App = () => {
           <ValidationCustomers />
           <ResearchTimeline />
           <ChallengesSection />
+          <AppDownloadSection />
           <CinematicCTA onOpenPilot={() => setPilotOpen(true)} />
           <Footer onOpenPilot={() => setPilotOpen(true)} />
         </>

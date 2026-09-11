@@ -77,11 +77,13 @@ const Story2AM = () => {
         {/* Right Image Frame */}
         <div ref={imageRef} className="lg:col-span-6">
           <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E7DDD9] bg-[#FFFDFC] shadow-md group">
-            <img
-              src="/img/2am-moment.jpg"
-              alt="Emotional 2 AM parent and crying infant moment"
-              loading="lazy"
-              decoding="async"
+            <video
+              src="/videos/2am story.mp4"
+              poster="/img/2am-moment.jpg"
+              autoPlay
+              loop
+              muted
+              playsInline
               className="w-full h-[280px] sm:h-[450px] md:h-[550px] object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#F7F1EE]/80 via-transparent to-transparent opacity-60" />

@@ -73,7 +73,7 @@ const BreakthroughTabs = () => {
           </div>
           <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight uppercase leading-[0.98] text-[#252529]">
             OUR BREAKTHROUGH:<br />
-            <span className="text-[#626268]">AI INSIDE A SMART MOSQUITO NET</span>
+            <span className="text-[#626268]">AI INSIDE A SMART CRADLE</span>
           </h2>
           <p className="max-w-2xl text-[#626268] text-xs sm:text-base leading-relaxed">
             The world&apos;s first 4-stage pipeline that transforms raw environmental and physiological signals into meaningful infant insights.
