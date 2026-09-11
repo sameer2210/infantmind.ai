@@ -30,6 +30,17 @@ const Footer = ({ onOpenPilot }) => {
                     <FiArrowUpRight className="text-[#B66F7D] text-xs" />
                   </button>
                 </li>
+                <li>
+                  <a
+                    href="/doc/Baby%20System.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#B66F7D] transition text-left flex items-center gap-1 font-medium text-[#252529]"
+                  >
+                    <span>More Information (PDF)</span>
+                    <FiArrowUpRight className="text-[#B66F7D] text-xs" />
+                  </a>
+                </li>
                 <li><a href="#challenges" className="hover:text-[#252529] transition">Technical Support</a></li>
                 <li><a href="#market" className="hover:text-[#252529] transition">Partnerships & Sales</a></li>
               </ul>
@@ -83,6 +94,17 @@ const Footer = ({ onOpenPilot }) => {
               <h4 className="text-xs sm:text-sm font-semibold text-[#252529] tracking-widest uppercase font-mono">Resources</h4>
               <ul className="space-y-2 sm:space-y-2.5 text-xs text-[#626268]">
                 <li><a href="/products/infantmind" className="hover:text-[#252529] transition">Product Specification</a></li>
+                <li>
+                  <a
+                    href="/doc/Baby%20System.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#9E5C6B] transition inline-flex items-center gap-1.5 text-[#B66F7D] font-medium font-mono"
+                  >
+                    <span>More Information & PDF</span>
+                    <FiArrowUpRight className="text-xs" />
+                  </a>
+                </li>
                 <li><a href="#validation" className="hover:text-[#252529] transition">Market Validation</a></li>
               </ul>
             </div>

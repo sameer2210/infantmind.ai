@@ -11,6 +11,7 @@ const BreakthroughTabs = () => {
       tagline: 'Smart Mosquito Net Integration',
       description: 'Camera, directional microphone array, and non-contact thermal sensor embedded seamlessly into the mosquito net frame.',
       image: '/img/hardware-platform.jpg',
+      video: '/videos/cradle assamble .mp4',
       specs: [
         '12MP High-sensitivity optical camera',
         'Multi-mic directional acoustic array',
@@ -116,16 +117,29 @@ const BreakthroughTabs = () => {
           {/* Right Dynamic Viewport */}
           <div className="lg:col-span-7 flex flex-col">
             <div className="relative flex-1 rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E7DDD9] bg-[#FFFDFC] shadow-md flex flex-col justify-between p-5 sm:p-8">
-              {/* Active Image Background */}
+              {/* Active Image/Video Background */}
               <div className="relative w-full h-[220px] sm:h-[320px] rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-6 border border-[#E7DDD9]">
-                <img
-                  src={stages[activeTab].image}
-                  alt={stages[activeTab].title}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover object-center transition-all duration-500 ease-out"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#FFFDFC]/80 via-transparent to-transparent opacity-80" />
+                {stages[activeTab].video ? (
+                  <video
+                    key={stages[activeTab].video}
+                    src={stages[activeTab].video}
+                    poster={stages[activeTab].image}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover object-center transition-all duration-500 ease-out"
+                  />
+                ) : (
+                  <img
+                    src={stages[activeTab].image}
+                    alt={stages[activeTab].title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover object-center transition-all duration-500 ease-out"
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#FFFDFC]/80 via-transparent to-transparent opacity-80 pointer-events-none" />
 
                 {/* Output Badge */}
                 <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 glass-card px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-[#E7DDD9] flex items-center justify-between">
