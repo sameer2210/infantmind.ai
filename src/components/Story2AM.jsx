@@ -37,38 +37,38 @@ const Story2AM = () => {
   }, []);
 
   return (
-    <section id="story" ref={sectionRef} className="relative w-full bg-[#0c0d10] text-white py-12 sm:py-20 md:py-32 px-4 sm:px-12 border-t border-white/10">
+    <section id="story" ref={sectionRef} className="relative w-full bg-[#F7F1EE] text-[#252529] py-12 sm:py-20 md:py-32 px-4 sm:px-12 border-t border-[#E7DDD9]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
         {/* Left Editorial Text Block */}
         <div ref={textRef} className="lg:col-span-6 space-y-6 sm:space-y-8">
-          <div className="pill-badge border-rose-500/20 bg-rose-500/5 text-rose-400">
+          <div className="pill-badge border-[#D8B9BF] bg-[#F3E9EA] text-[#B66F7D]">
             <span>02 / THE REAL PROBLEM</span>
           </div>
 
-          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight uppercase leading-[0.98] text-white">
+          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight uppercase leading-[0.98] text-[#252529]">
             THE 2 AM MOMENT<br />
-            <span className="text-slate-400">EVERY PARENT DREADS</span>
+            <span className="text-[#626268]">EVERY PARENT DREADS</span>
           </h2>
 
-          <div className="space-y-4 sm:space-y-6 text-sm sm:text-base text-slate-300 font-normal leading-relaxed">
-            <p className="border-l-2 border-rose-500 pl-4 py-1 text-white font-medium">
+          <div className="space-y-4 sm:space-y-6 text-sm sm:text-base text-[#626268] font-normal leading-relaxed">
+            <p className="border-l-2 border-[#B66F7D] pl-4 py-1 text-[#252529] font-medium">
               It&apos;s 2 AM. Your baby is crying uncontrollably. You&apos;ve tried everything — feeding, rocking, checking temperature. Nothing works.
             </p>
             <p>
-              The core issue isn&apos;t lack of care — <strong className="text-white font-semibold">it&apos;s lack of understanding</strong>.
+              The core issue isn&apos;t lack of care — <strong className="text-[#252529] font-semibold">it&apos;s lack of understanding</strong>.
             </p>
-            <p className="text-slate-400 text-xs sm:text-sm">
+            <p className="text-[#626268] text-xs sm:text-sm">
               Babies cannot communicate their needs verbally, leaving parents guessing, fatigued, and anxious in high-stress moments.
             </p>
           </div>
 
-          <div className="pt-3 sm:pt-4 grid grid-cols-2 gap-4 border-t border-white/10 font-mono text-xs text-slate-400">
+          <div className="pt-3 sm:pt-4 grid grid-cols-2 gap-4 border-t border-[#E7DDD9] font-mono text-xs text-[#626268]">
             <div>
-              <span className="text-rose-400 font-bold block text-sm sm:text-base mb-0.5">01 / GUESSWORK</span>
+              <span className="text-[#B66F7D] font-bold block text-sm sm:text-base mb-0.5">01 / GUESSWORK</span>
               <span>Trial-and-error causes prolonged distress</span>
             </div>
             <div>
-              <span className="text-rose-400 font-bold block text-sm sm:text-base mb-0.5">02 / ANXIETY</span>
+              <span className="text-[#B66F7D] font-bold block text-sm sm:text-base mb-0.5">02 / ANXIETY</span>
               <span>Parents lack actionable health clarity</span>
             </div>
           </div>
@@ -76,7 +76,7 @@ const Story2AM = () => {
 
         {/* Right Image Frame */}
         <div ref={imageRef} className="lg:col-span-6">
-          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 bg-[#121316] shadow-2xl group">
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E7DDD9] bg-[#FFFDFC] shadow-md group">
             <img
               src="/img/2am-moment.jpg"
               alt="Emotional 2 AM parent and crying infant moment"
@@ -84,14 +84,14 @@ const Story2AM = () => {
               decoding="async"
               className="w-full h-[280px] sm:h-[450px] md:h-[550px] object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0c0d10] via-transparent to-transparent opacity-60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#F7F1EE]/80 via-transparent to-transparent opacity-60" />
 
-            <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/10 flex items-center justify-between">
+            <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-[#E7DDD9] flex items-center justify-between">
               <div>
-                <span className="font-mono text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest block">INFANT DISTRESS TIME</span>
-                <span className="font-display text-xs sm:text-sm font-bold text-white">02:14 AM • UNRESOLVED CRY</span>
+                <span className="font-mono text-[9px] sm:text-[10px] text-[#626268] uppercase tracking-widest block">INFANT DISTRESS TIME</span>
+                <span className="font-display text-xs sm:text-sm font-bold text-[#252529]">02:14 AM • UNRESOLVED CRY</span>
               </div>
-              <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#B66F7D] animate-ping" />
             </div>
           </div>
         </div>

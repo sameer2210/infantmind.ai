@@ -29,7 +29,7 @@ const App = () => {
   const isProductPage = currentPath === '/products/infantmind' || currentPath === '/products/infantmind/';
 
   return (
-    <main className="relative min-h-screen w-full bg-[#07080a] text-white selection:bg-rose-500 selection:text-white">
+    <main className="relative min-h-screen w-full bg-[#FBF8F5] text-[#252529] selection:bg-[#B66F7D] selection:text-[#FFFDFC]">
       <Navbar
         onOpenPilot={() => setPilotOpen(true)}
         navigate={navigate}

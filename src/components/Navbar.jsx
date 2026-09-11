@@ -103,11 +103,11 @@ const Navbar = ({ onOpenPilot, navigate, currentPath }) => {
           <a
             href="/"
             onClick={(e) => handleNavClick(e, '/', true)}
-            className="flex items-center gap-2.5 group shrink-0 cursor-pointer py-2 px-3 rounded-full bg-[#0c0d10]/60 border border-white/10 backdrop-blur-md hover:bg-[#0c0d10]/80 transition"
+            className="flex items-center gap-2.5 group shrink-0 cursor-pointer py-2 px-3 rounded-full bg-[#FFFDFC]/90 border border-[#E7DDD9] backdrop-blur-md hover:bg-[#F7F1EE] transition shadow-sm"
             aria-label="InfantMind AI Home"
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-rose-500 group-hover:scale-125 transition-transform" />
-            <span className="font-display text-base sm:text-lg font-bold tracking-tight text-white uppercase">INFANTMIND</span>
+            <span className="w-2.5 h-2.5 rounded-full bg-[#B66F7D] group-hover:scale-125 transition-transform" />
+            <span className="font-display text-base sm:text-lg font-bold tracking-tight text-[#252529] uppercase">INFANTMIND</span>
           </a>
 
           {/* CENTER: Floating Capsule Pill (Only Nav Links) */}
@@ -115,8 +115,8 @@ const Navbar = ({ onOpenPilot, navigate, currentPath }) => {
             aria-label="Main Navigation"
             className={`hidden lg:flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-full border transition-all duration-300 ${
               scrolled
-                ? 'bg-[#0c0d10]/95 border-white/20 shadow-2xl backdrop-blur-2xl'
-                : 'bg-[#0c0d10]/80 border-white/10 backdrop-blur-xl shadow-lg'
+                ? 'bg-[#FFFDFC]/95 border-[#E7DDD9] shadow-md backdrop-blur-2xl'
+                : 'bg-[#FFFDFC]/80 border-[#E7DDD9] backdrop-blur-xl shadow-sm'
             }`}
           >
             {navItems.map((item) => {
@@ -129,13 +129,13 @@ const Navbar = ({ onOpenPilot, navigate, currentPath }) => {
                   aria-current={isActive ? 'page' : undefined}
                   className={`text-xs font-mono tracking-wider transition-all duration-200 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 ${
                     isActive
-                      ? 'bg-white/10 text-white font-semibold shadow-inner border border-white/10'
-                      : 'text-slate-400 hover:text-white hover:bg-white/5'
+                      ? 'bg-[#F3E9EA] text-[#B66F7D] font-semibold border border-[#D8B9BF]'
+                      : 'text-[#626268] hover:text-[#252529] hover:bg-[#F7F1EE]'
                   }`}
                 >
                   <span>{item.label}</span>
                   {item.isRoute && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-rose-500 inline-block" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B66F7D] inline-block" />
                   )}
                 </a>
               );
@@ -149,7 +149,7 @@ const Navbar = ({ onOpenPilot, navigate, currentPath }) => {
               href="https://www.spandavidyaai.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden xl:flex items-center gap-1 px-3 py-1.5 rounded-full font-mono text-[11px] text-rose-400/90 hover:text-rose-300 hover:bg-rose-500/10 border border-transparent hover:border-rose-500/30 transition-all duration-200"
+              className="hidden xl:flex items-center gap-1 px-3 py-1.5 rounded-full font-mono text-[11px] text-[#B66F7D] hover:text-[#9E5C6B] hover:bg-[#F3E9EA] border border-transparent hover:border-[#D8B9BF] transition-all duration-200"
               title="Visit Parent Company: Spandavidya AI"
             >
               <span>Spandavidya AI</span>
@@ -159,7 +159,7 @@ const Navbar = ({ onOpenPilot, navigate, currentPath }) => {
             {/* Primary CTA */}
             <button
               onClick={onOpenPilot}
-              className="hidden sm:flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-full bg-white text-black font-semibold text-xs uppercase tracking-wider hover:bg-rose-500 hover:text-white transition-all duration-300 shadow-md group"
+              className="hidden sm:flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-full bg-[#B66F7D] text-white font-semibold text-xs uppercase tracking-wider hover:bg-[#9E5C6B] transition-all duration-300 shadow-sm group"
             >
               <span>Explore InfantMind</span>
               <FiArrowUpRight className="text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -168,7 +168,7 @@ const Navbar = ({ onOpenPilot, navigate, currentPath }) => {
             {/* Mobile / Tablet Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden text-white p-2.5 rounded-full bg-[#0c0d10]/80 border border-white/10 backdrop-blur-md hover:bg-white/10 transition focus:outline-none"
+              className="lg:hidden text-[#252529] p-2.5 rounded-full bg-[#FFFDFC]/90 border border-[#E7DDD9] backdrop-blur-md hover:bg-[#F7F1EE] transition focus:outline-none"
               aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation"
@@ -183,11 +183,11 @@ const Navbar = ({ onOpenPilot, navigate, currentPath }) => {
       {mobileMenuOpen && (
         <div
           id="mobile-navigation"
-          className="fixed inset-0 z-40 bg-[#07080a]/98 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-10 pt-28 lg:hidden border-b border-white/10 overflow-y-auto font-sans"
+          className="fixed inset-0 z-40 bg-[#FBF8F5]/98 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-10 pt-28 lg:hidden border-b border-[#E7DDD9] overflow-y-auto font-sans"
         >
           {/* Header Bar inside Menu */}
           <div className="flex flex-col gap-4">
-            <span className="font-mono text-[10px] text-rose-400 uppercase tracking-widest block pb-2 border-b border-white/10">
+            <span className="font-mono text-[10px] text-[#B66F7D] uppercase tracking-widest block pb-2 border-b border-[#E7DDD9]">
               NAVIGATION DIRECTORY
             </span>
 
@@ -196,7 +196,7 @@ const Navbar = ({ onOpenPilot, navigate, currentPath }) => {
                 href="/"
                 onClick={(e) => handleNavClick(e, '/', true)}
                 className={`font-display text-2xl font-semibold tracking-tight transition-colors ${
-                  !isProductPage ? 'text-white' : 'text-slate-400 hover:text-white'
+                  !isProductPage ? 'text-[#252529]' : 'text-[#626268] hover:text-[#252529]'
                 }`}
               >
                 Home
@@ -210,12 +210,12 @@ const Navbar = ({ onOpenPilot, navigate, currentPath }) => {
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href, item.isRoute)}
                     className={`font-display text-xl sm:text-2xl tracking-tight transition-colors flex items-center justify-between py-1 ${
-                      isActive ? 'text-rose-400 font-bold' : 'text-slate-300 hover:text-white'
+                      isActive ? 'text-[#B66F7D] font-bold' : 'text-[#626268] hover:text-[#252529]'
                     }`}
                   >
                     <span>{item.label}</span>
                     {item.isRoute && (
-                      <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/40">
+                      <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-[#F3E9EA] text-[#B66F7D] border border-[#D8B9BF]">
                         PRODUCT PAGE
                       </span>
                     )}
@@ -226,12 +226,12 @@ const Navbar = ({ onOpenPilot, navigate, currentPath }) => {
           </div>
 
           {/* Bottom Action Section inside Mobile Menu */}
-          <div className="pt-8 border-t border-white/10 space-y-3 mt-8">
+          <div className="pt-8 border-t border-[#E7DDD9] space-y-3 mt-8">
             <a
               href="https://www.spandavidyaai.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3 rounded-full border border-rose-500/40 bg-rose-500/10 text-rose-300 font-mono text-xs font-semibold tracking-wider flex items-center justify-center gap-2 hover:bg-rose-500 hover:text-white transition"
+              className="w-full py-3 rounded-full border border-[#D8B9BF] bg-[#F3E9EA] text-[#B66F7D] font-mono text-xs font-semibold tracking-wider flex items-center justify-center gap-2 hover:bg-[#B66F7D] hover:text-white transition"
             >
               <span>Spandavidya AI (Parent Company)</span>
               <FiArrowUpRight />
@@ -242,13 +242,13 @@ const Navbar = ({ onOpenPilot, navigate, currentPath }) => {
                 setMobileMenuOpen(false);
                 onOpenPilot();
               }}
-              className="w-full py-3.5 rounded-full bg-white text-black font-semibold text-sm flex items-center justify-center gap-2 hover:bg-rose-500 hover:text-white transition-all shadow-xl"
+              className="w-full py-3.5 rounded-full bg-[#B66F7D] text-white font-semibold text-sm flex items-center justify-center gap-2 hover:bg-[#9E5C6B] transition-all shadow-md"
             >
               <span>Explore InfantMind</span>
               <FiArrowUpRight />
             </button>
 
-            <p className="text-center font-mono text-[10px] text-slate-500 uppercase tracking-widest pt-2">
+            <p className="text-center font-mono text-[10px] text-[#8C8C91] uppercase tracking-widest pt-2">
               AI-POWERED BABY UNDERSTANDING SYSTEM
             </p>
           </div>

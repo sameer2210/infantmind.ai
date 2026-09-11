@@ -39,17 +39,17 @@ const ProductSpecsTable = () => {
   ];
 
   return (
-    <section id="product-specs" className="relative w-full bg-[#07080a] text-white py-32 px-6 sm:px-12 border-t border-white/10">
+    <section id="product-specs" className="relative w-full bg-[#FBF8F5] text-[#252529] py-32 px-6 sm:px-12 border-t border-[#E7DDD9]">
       <div className="max-w-7xl mx-auto space-y-16">
         {/* Header */}
         <div className="space-y-3">
-          <div className="pill-badge border-white/10 bg-white/[0.03] text-slate-300">
+          <div className="pill-badge border-[#E7DDD9] bg-[#F7F1EE] text-[#626268]">
             <span>04 / TECHNICAL SPECIFICATIONS</span>
           </div>
-          <h2 className="font-display text-4xl sm:text-6xl font-bold tracking-tight uppercase leading-[0.95] text-white">
-            TECHNICAL <span className="text-rose-500">SPECIFICATIONS</span>
+          <h2 className="font-display text-4xl sm:text-6xl font-bold tracking-tight uppercase leading-[0.95] text-[#252529]">
+            TECHNICAL <span className="text-[#B66F7D]">SPECIFICATIONS</span>
           </h2>
-          <p className="max-w-md text-slate-400 text-sm sm:text-base leading-relaxed">
+          <p className="max-w-md text-[#626268] text-sm sm:text-base leading-relaxed">
             Detailed specifications of the InfantMind hardware platform and multimodal AI engine.
           </p>
         </div>
@@ -57,19 +57,19 @@ const ProductSpecsTable = () => {
         {/* Specifications Grid Table */}
         <div className="space-y-12">
           {specCategories.map((cat, idx) => (
-            <div key={idx} className="glass-card rounded-3xl p-8 border border-white/10 space-y-6">
-              <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                <h3 className="font-mono text-xs font-bold text-rose-400 uppercase tracking-widest">
+            <div key={idx} className="glass-card rounded-3xl p-8 border border-[#E7DDD9] bg-[#FFFDFC] shadow-sm space-y-6">
+              <div className="flex items-center justify-between border-b border-[#E7DDD9] pb-4">
+                <h3 className="font-mono text-xs font-bold text-[#B66F7D] uppercase tracking-widest">
                   {cat.category}
                 </h3>
-                <span className="font-mono text-[10px] text-slate-500 uppercase">SPECIFICATION MATRIX</span>
+                <span className="font-mono text-[10px] text-[#8C8C91] uppercase">SPECIFICATION MATRIX</span>
               </div>
 
-              <div className="divide-y divide-white/5">
+              <div className="divide-y divide-[#E7DDD9]">
                 {cat.items.map((item, i) => (
                   <div key={i} className="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                    <span className="font-display text-sm font-semibold text-slate-200">{item.name}</span>
-                    <span className="font-mono text-xs text-slate-400 sm:text-right">{item.value}</span>
+                    <span className="font-display text-sm font-semibold text-[#252529]">{item.name}</span>
+                    <span className="font-mono text-xs text-[#626268] sm:text-right">{item.value}</span>
                   </div>
                 ))}
               </div>

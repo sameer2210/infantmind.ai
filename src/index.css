@@ -5,16 +5,21 @@
 @tailwind utilities;
 
 :root {
-  --bg-primary: #07080a;
-  --bg-secondary: #0c0d10;
-  --bg-tertiary: #121316;
-  --accent-rose: #f43f5e;
-  --accent-blue: #3b82f6;
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-active: rgba(255, 255, 255, 0.25);
+  --bg-primary: #FBF8F5;
+  --bg-secondary: #F7F1EE;
+  --bg-tertiary: #FFFDFC;
+  --accent-rose: #B66F7D;
+  --accent-rose-dark: #9E5C6B;
+  --accent-soft: #EADBDD;
+  --accent-light: #F3E9EA;
+  --text-primary: #252529;
+  --text-secondary: #626268;
+  --text-muted: #8C8C91;
+  --border-subtle: #E7DDD9;
+  --border-active: #D8B9BF;
+  --color-success: #718A78;
+  --color-warning: #B38A62;
+  --color-error: #A96767;
 }
 
 html,
@@ -26,8 +31,11 @@ body {
   font-family: "Plus Jakarta Sans", sans-serif;
   color: var(--text-primary);
   scroll-behavior: smooth;
-  selection-background-color: #f43f5e;
-  selection-color: #ffffff;
+}
+
+::selection {
+  background-color: #B66F7D;
+  color: #FFFDFC;
 }
 
 /* Custom Scrollbar */
@@ -35,20 +43,21 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #07080a;
+  background: #FBF8F5;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #E7DDD9;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #D8B9BF;
 }
 
 @layer base {
   h1, h2, h3, .font-display {
     font-family: "Space Grotesk", sans-serif;
     letter-spacing: -0.02em;
+    color: var(--text-primary);
   }
 
   a:focus-visible,
@@ -60,29 +69,31 @@ body {
 
 @layer utilities {
   .glass-card {
-    background-color: rgba(18, 19, 22, 0.7);
+    background-color: rgba(255, 253, 252, 0.85);
     backdrop-filter: blur(16px);
     border: 1px solid var(--border-subtle);
+    box-shadow: 0 4px 20px -2px rgba(37, 37, 41, 0.03);
   }
 
   .glass-card-hover {
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .glass-card-hover:hover {
-    border-color: rgba(255, 255, 255, 0.2);
-    background-color: rgba(24, 25, 30, 0.85);
+    border-color: var(--border-active);
+    background-color: rgba(255, 253, 252, 0.98);
     transform: translateY(-2px);
+    box-shadow: 0 10px 30px -5px rgba(182, 111, 125, 0.08);
   }
 
   .pill-badge {
-    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono tracking-widest uppercase border border-white/10 bg-white/[0.03] text-slate-300;
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono tracking-widest uppercase border border-[#E7DDD9] bg-[#F7F1EE] text-[#626268];
   }
 
   .nav-capsule {
-    background: rgba(12, 13, 16, 0.85);
+    background: rgba(255, 253, 252, 0.9);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--border-subtle);
+    box-shadow: 0 10px 30px -10px rgba(37, 37, 41, 0.08);
   }
 
   .tab-indicator {
@@ -90,19 +101,19 @@ body {
     left: 0;
     width: 2px;
     height: 100%;
-    background-color: #f43f5e;
+    background-color: var(--accent-rose);
     transition: all 0.3s ease;
   }
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+  background: linear-gradient(135deg, #252529 0%, #626268 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-rose {
-  background: linear-gradient(135deg, #ffffff 0%, #fb7185 100%);
+  background: linear-gradient(135deg, #252529 0%, #B66F7D 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

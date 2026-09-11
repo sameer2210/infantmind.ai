@@ -64,18 +64,18 @@ const BreakthroughTabs = () => {
   ];
 
   return (
-    <section id="breakthrough" className="relative w-full bg-[#0c0d10] text-white py-12 sm:py-20 md:py-32 px-4 sm:px-12 border-t border-white/10">
+    <section id="breakthrough" className="relative w-full bg-[#F7F1EE] text-[#252529] py-12 sm:py-20 md:py-32 px-4 sm:px-12 border-t border-[#E7DDD9]">
       <div className="max-w-7xl mx-auto space-y-10 sm:space-y-16">
         {/* Section Header */}
         <div className="space-y-2 sm:space-y-3">
-          <div className="pill-badge border-rose-500/20 bg-rose-500/5 text-rose-400">
+          <div className="pill-badge border-[#D8B9BF] bg-[#F3E9EA] text-[#B66F7D]">
             <span>04 / SYSTEM ARCHITECTURE</span>
           </div>
-          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight uppercase leading-[0.98] text-white">
+          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight uppercase leading-[0.98] text-[#252529]">
             OUR BREAKTHROUGH:<br />
-            <span className="text-slate-400">AI INSIDE A SMART MOSQUITO NET</span>
+            <span className="text-[#626268]">AI INSIDE A SMART MOSQUITO NET</span>
           </h2>
-          <p className="max-w-2xl text-slate-400 text-xs sm:text-base leading-relaxed">
+          <p className="max-w-2xl text-[#626268] text-xs sm:text-base leading-relaxed">
             The world&apos;s first 4-stage pipeline that transforms raw environmental and physiological signals into meaningful infant insights.
           </p>
         </div>
@@ -92,22 +92,22 @@ const BreakthroughTabs = () => {
                   onClick={() => setActiveTab(idx)}
                   className={`relative text-left p-4 sm:p-6 rounded-xl sm:rounded-2xl border transition-all duration-300 ${
                     isActive
-                      ? 'bg-[#121316] border-rose-500/50 shadow-xl'
-                      : 'bg-[#07080a]/50 border-white/5 hover:border-white/20 hover:bg-[#121316]/50'
+                      ? 'bg-[#FFFDFC] border-[#D8B9BF] shadow-md'
+                      : 'bg-[#FBF8F5]/60 border-[#E7DDD9] hover:border-[#D8B9BF] hover:bg-[#FFFDFC]'
                   }`}
                 >
                   {/* Left Active Line */}
                   {isActive && <div className="tab-indicator rounded-full" />}
 
                   <div className="flex items-center justify-between mb-1 sm:mb-2">
-                    <span className={`font-mono text-[10px] sm:text-xs font-bold tracking-widest ${isActive ? 'text-rose-400' : 'text-slate-500'}`}>
+                    <span className={`font-mono text-[10px] sm:text-xs font-bold tracking-widest ${isActive ? 'text-[#B66F7D]' : 'text-[#8C8C91]'}`}>
                       STAGE {stage.num}
                     </span>
-                    {isActive && <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />}
+                    {isActive && <span className="w-2 h-2 rounded-full bg-[#B66F7D] animate-pulse" />}
                   </div>
 
-                  <h3 className="font-display text-base sm:text-xl font-bold text-white tracking-wide">{stage.title}</h3>
-                  <p className="text-[11px] sm:text-xs text-slate-400 mt-0.5 font-mono">{stage.tagline}</p>
+                  <h3 className="font-display text-base sm:text-xl font-bold text-[#252529] tracking-wide">{stage.title}</h3>
+                  <p className="text-[11px] sm:text-xs text-[#626268] mt-0.5 font-mono">{stage.tagline}</p>
                 </button>
               );
             })}
@@ -115,9 +115,9 @@ const BreakthroughTabs = () => {
 
           {/* Right Dynamic Viewport */}
           <div className="lg:col-span-7 flex flex-col">
-            <div className="relative flex-1 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 bg-[#07080a] shadow-2xl flex flex-col justify-between p-5 sm:p-8">
+            <div className="relative flex-1 rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E7DDD9] bg-[#FFFDFC] shadow-md flex flex-col justify-between p-5 sm:p-8">
               {/* Active Image Background */}
-              <div className="relative w-full h-[220px] sm:h-[320px] rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-6 border border-white/10">
+              <div className="relative w-full h-[220px] sm:h-[320px] rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-6 border border-[#E7DDD9]">
                 <img
                   src={stages[activeTab].image}
                   alt={stages[activeTab].title}
@@ -125,15 +125,15 @@ const BreakthroughTabs = () => {
                   decoding="async"
                   className="w-full h-full object-cover object-center transition-all duration-500 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#07080a] via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#FFFDFC]/80 via-transparent to-transparent opacity-80" />
 
                 {/* Output Badge */}
-                <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 glass-card px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-white/10 flex items-center justify-between">
+                <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 glass-card px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-[#E7DDD9] flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <FiCpu className="text-rose-400 text-sm sm:text-base" />
-                    <span className="font-mono text-[10px] sm:text-xs text-slate-300">OUTPUT:</span>
+                    <FiCpu className="text-[#B66F7D] text-sm sm:text-base" />
+                    <span className="font-mono text-[10px] sm:text-xs text-[#626268]">OUTPUT:</span>
                   </div>
-                  <span className="font-display text-xs sm:text-sm font-bold text-white text-right">
+                  <span className="font-display text-xs sm:text-sm font-bold text-[#252529] text-right">
                     {stages[activeTab].output}
                   </span>
                 </div>
@@ -142,18 +142,18 @@ const BreakthroughTabs = () => {
               {/* Active Content Description & Specs */}
               <div className="space-y-4 sm:space-y-6">
                 <div>
-                  <h3 className="font-display text-lg sm:text-2xl font-bold text-white mb-1.5">
+                  <h3 className="font-display text-lg sm:text-2xl font-bold text-[#252529] mb-1.5">
                     {stages[activeTab].title}
                   </h3>
-                  <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                  <p className="text-[#626268] text-xs sm:text-sm leading-relaxed">
                     {stages[activeTab].description}
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-3 sm:pt-4 border-t border-white/10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-3 sm:pt-4 border-t border-[#E7DDD9]">
                   {stages[activeTab].specs.map((spec, i) => (
-                    <div key={i} className="flex items-center gap-2 font-mono text-[11px] sm:text-xs text-slate-400">
-                      <FiCheck className="text-rose-400 text-sm shrink-0" />
+                    <div key={i} className="flex items-center gap-2 font-mono text-[11px] sm:text-xs text-[#626268]">
+                      <FiCheck className="text-[#B66F7D] text-sm shrink-0" />
                       <span>{spec}</span>
                     </div>
                   ))}

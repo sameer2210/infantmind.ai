@@ -29,7 +29,7 @@ const ProductHighlights = () => {
   ];
 
   return (
-    <section className="relative w-full bg-[#07080a] text-white py-20 px-6 sm:px-12 border-t border-white/10">
+    <section className="relative w-full bg-[#FBF8F5] text-[#252529] py-20 px-6 sm:px-12 border-t border-[#E7DDD9]">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {highlights.map((h, i) => {
@@ -37,17 +37,17 @@ const ProductHighlights = () => {
             return (
               <div
                 key={i}
-                className="glass-card rounded-3xl p-8 border border-white/10 hover:border-white/20 transition-all duration-300 space-y-4 group"
+                className="glass-card rounded-3xl p-8 border border-[#E7DDD9] bg-[#FFFDFC] hover:border-[#D8B9BF] transition-all duration-300 space-y-4 group"
               >
-                <div className="w-12 h-12 rounded-2xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 text-2xl group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-2xl bg-[#F3E9EA] border border-[#D8B9BF] flex items-center justify-center text-[#B66F7D] text-2xl group-hover:scale-110 transition-transform">
                   <Icon />
                 </div>
                 <div>
-                  <span className="font-mono text-[10px] text-rose-400 uppercase tracking-widest block mb-1">
+                  <span className="font-mono text-[10px] text-[#B66F7D] uppercase tracking-widest block mb-1">
                     {h.subtitle}
                   </span>
-                  <h3 className="font-display text-xl font-bold text-white mb-2">{h.title}</h3>
-                  <p className="text-slate-400 text-xs leading-relaxed">{h.desc}</p>
+                  <h3 className="font-display text-xl font-bold text-[#252529] mb-2">{h.title}</h3>
+                  <p className="text-[#626268] text-xs leading-relaxed">{h.desc}</p>
                 </div>
               </div>
             );

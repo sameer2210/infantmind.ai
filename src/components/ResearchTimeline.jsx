@@ -39,18 +39,18 @@ const ResearchTimeline = () => {
   ];
 
   return (
-    <section id="research" ref={sectionRef} className="relative w-full bg-[#0c0d10] text-white py-12 sm:py-20 md:py-32 px-4 sm:px-12 border-t border-white/10">
+    <section id="research" ref={sectionRef} className="relative w-full bg-[#F7F1EE] text-[#252529] py-12 sm:py-20 md:py-32 px-4 sm:px-12 border-t border-[#E7DDD9]">
       <div className="max-w-7xl mx-auto space-y-12 sm:space-y-20">
         {/* Section Header */}
         <div className="space-y-2 sm:space-y-3">
-          <div className="pill-badge border-rose-500/20 bg-rose-500/5 text-rose-400">
+          <div className="pill-badge border-[#D8B9BF] bg-[#F3E9EA] text-[#B66F7D]">
             <span>08 / R&D FOUNDATION</span>
           </div>
-          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight uppercase leading-[0.98] text-white">
+          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight uppercase leading-[0.98] text-[#252529]">
             OUR JOURNEY<br />
-            <span className="text-slate-400">& RESEARCH FOUNDATION</span>
+            <span className="text-[#626268]">& RESEARCH FOUNDATION</span>
           </h2>
-          <p className="max-w-xl text-slate-400 text-xs sm:text-base leading-relaxed">
+          <p className="max-w-xl text-[#626268] text-xs sm:text-base leading-relaxed">
             We built a custom dataset where none existed, bridging pediatric symptom research with multi-sensory machine learning.
           </p>
         </div>
@@ -58,42 +58,42 @@ const ResearchTimeline = () => {
         {/* 6-Month Timeline Cards Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {timelineSteps.map((step, idx) => (
-            <div key={idx} className="glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-white/10 space-y-3 sm:space-y-4 relative group hover:border-rose-500/40 transition">
+            <div key={idx} className="glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-[#E7DDD9] space-y-3 sm:space-y-4 relative group hover:border-[#D8B9BF] transition">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-xs font-bold text-rose-500">{step.month}</span>
-                <span className="font-mono text-[9px] sm:text-[10px] text-slate-400 uppercase border border-white/10 px-2 py-0.5 rounded-full">
+                <span className="font-mono text-xs font-bold text-[#B66F7D]">{step.month}</span>
+                <span className="font-mono text-[9px] sm:text-[10px] text-[#626268] uppercase border border-[#E7DDD9] px-2 py-0.5 rounded-full">
                   {step.badge}
                 </span>
               </div>
-              <h3 className="font-display text-base sm:text-xl font-bold text-white">{step.title}</h3>
-              <p className="text-slate-400 text-xs leading-relaxed">{step.description}</p>
+              <h3 className="font-display text-base sm:text-xl font-bold text-[#252529]">{step.title}</h3>
+              <p className="text-[#626268] text-xs leading-relaxed">{step.description}</p>
             </div>
           ))}
         </div>
 
         {/* Data Sources & Research Pillars */}
-        <div className="p-6 sm:p-12 rounded-2xl sm:rounded-3xl bg-[#07080a] border border-white/10 space-y-6 sm:space-y-8">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4 sm:pb-6">
+        <div className="p-6 sm:p-12 rounded-2xl sm:rounded-3xl bg-[#FFFDFC] border border-[#E7DDD9] shadow-sm space-y-6 sm:space-y-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#E7DDD9] pb-4 sm:pb-6">
             <div>
-              <span className="font-mono text-xs text-rose-400 uppercase tracking-widest block">DATA FOUNDATION</span>
-              <h3 className="font-display text-xl sm:text-2xl font-bold text-white">Multi-Source Clinical Dataset</h3>
+              <span className="font-mono text-xs text-[#B66F7D] uppercase tracking-widest block">DATA FOUNDATION</span>
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-[#252529]">Multi-Source Clinical Dataset</h3>
             </div>
-            <span className="font-mono text-[10px] sm:text-xs text-slate-400 uppercase border border-white/10 px-3 py-1 rounded-full self-start sm:self-auto">
+            <span className="font-mono text-[10px] sm:text-xs text-[#626268] uppercase border border-[#E7DDD9] px-3 py-1 rounded-full self-start sm:self-auto">
               PROPRIETARY INFANT LABELS
             </span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {dataPillars.map((dp, i) => (
-              <div key={i} className="p-4 sm:p-5 rounded-xl sm:rounded-2xl bg-white/[0.02] border border-white/5 space-y-1.5 sm:space-y-2">
-                <FiDatabase className="text-rose-400 text-lg sm:text-xl" />
-                <h4 className="font-display text-xs sm:text-sm font-bold text-white">{dp.title}</h4>
-                <p className="text-[11px] sm:text-xs text-slate-400 font-mono">{dp.source}</p>
+              <div key={i} className="p-4 sm:p-5 rounded-xl sm:rounded-2xl bg-[#F7F1EE] border border-[#E7DDD9] space-y-1.5 sm:space-y-2">
+                <FiDatabase className="text-[#B66F7D] text-lg sm:text-xl" />
+                <h4 className="font-display text-xs sm:text-sm font-bold text-[#252529]">{dp.title}</h4>
+                <p className="text-[11px] sm:text-xs text-[#626268] font-mono">{dp.source}</p>
               </div>
             ))}
           </div>
 
-          <div className="pt-3 sm:pt-4 text-center font-mono text-[10px] sm:text-xs text-slate-300 uppercase tracking-widest border-t border-white/10">
+          <div className="pt-3 sm:pt-4 text-center font-mono text-[10px] sm:text-xs text-[#626268] uppercase tracking-widest border-t border-[#E7DDD9]">
             &quot;Our system combines research-backed rules with data-driven AI models to create a highly accurate infant understanding platform.&quot;
           </div>
         </div>

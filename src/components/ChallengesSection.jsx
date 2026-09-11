@@ -60,20 +60,20 @@ const ChallengesSection = () => {
   ];
 
   return (
-    <section id="challenges" className="relative w-full bg-[#07080a] text-white py-12 sm:py-20 md:py-32 px-4 sm:px-12 border-t border-white/10">
+    <section id="challenges" className="relative w-full bg-[#FBF8F5] text-[#252529] py-12 sm:py-20 md:py-32 px-4 sm:px-12 border-t border-[#E7DDD9]">
       <div className="max-w-7xl mx-auto space-y-10 sm:space-y-16">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6">
           <div className="space-y-2 sm:space-y-3">
-            <div className="pill-badge border-white/10 bg-white/[0.03] text-slate-300">
+            <div className="pill-badge border-[#E7DDD9] bg-[#F7F1EE] text-[#626268]">
               <span>09 / EXECUTION ROADMAP</span>
             </div>
-            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight uppercase leading-[0.98] text-white">
+            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight uppercase leading-[0.98] text-[#252529]">
               KEY CHALLENGES<br />
-              <span className="text-slate-400">& OUR APPROACH</span>
+              <span className="text-[#626268]">& OUR APPROACH</span>
             </h2>
           </div>
-          <p className="max-w-md text-slate-400 text-xs sm:text-base leading-relaxed">
+          <p className="max-w-md text-[#626268] text-xs sm:text-base leading-relaxed">
             We understand the challenges deeply — and we have already designed our system architecture to address them.
           </p>
         </div>
@@ -85,28 +85,28 @@ const ChallengesSection = () => {
             return (
               <div
                 key={item.num}
-                className="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10 hover:border-white/20 transition-all duration-300 space-y-4 sm:space-y-6 flex flex-col justify-between"
+                className="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-[#E7DDD9] hover:border-[#D8B9BF] transition-all duration-300 space-y-4 sm:space-y-6 flex flex-col justify-between"
               >
                 <div className="space-y-3 sm:space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-lg sm:text-xl">
+                    <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-[#F3E9EA] border border-[#D8B9BF] text-[#B66F7D] text-lg sm:text-xl">
                       <Icon />
                     </div>
-                    <span className="font-mono text-xs font-bold text-rose-500">CHALLENGE {item.num}</span>
+                    <span className="font-mono text-xs font-bold text-[#B66F7D]">CHALLENGE {item.num}</span>
                   </div>
 
-                  <h3 className="font-display text-lg sm:text-xl font-bold text-white">{item.title}</h3>
+                  <h3 className="font-display text-lg sm:text-xl font-bold text-[#252529]">{item.title}</h3>
 
-                  <div className="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/5 font-mono text-[11px] sm:text-xs text-slate-400">
-                    <span className="text-rose-400 font-bold block mb-0.5 sm:mb-1">CHALLENGE:</span>
+                  <div className="p-3 sm:p-3.5 rounded-xl bg-[#F7F1EE] border border-[#E7DDD9] font-mono text-[11px] sm:text-xs text-[#626268]">
+                    <span className="text-[#B38A62] font-bold block mb-0.5 sm:mb-1">CHALLENGE:</span>
                     {item.challenge}
                   </div>
 
                   <div className="space-y-1.5 sm:space-y-2 pt-1 sm:pt-2">
-                    <span className="font-mono text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest block">OUR APPROACH:</span>
+                    <span className="font-mono text-[9px] sm:text-[10px] text-[#8C8C91] uppercase tracking-widest block">OUR APPROACH:</span>
                     {item.approach.map((ap, i) => (
-                      <div key={i} className="flex items-start gap-2 font-mono text-[11px] sm:text-xs text-slate-300">
-                        <FiCheckCircle className="text-rose-400 text-sm shrink-0 mt-0.5" />
+                      <div key={i} className="flex items-start gap-2 font-mono text-[11px] sm:text-xs text-[#626268]">
+                        <FiCheckCircle className="text-[#B66F7D] text-sm shrink-0 mt-0.5" />
                         <span>{ap}</span>
                       </div>
                     ))}
@@ -117,15 +117,15 @@ const ChallengesSection = () => {
           })}
 
           {/* Closing Statement Card */}
-          <div className="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-rose-500/30 bg-gradient-to-br from-rose-500/10 via-transparent to-transparent flex flex-col justify-between space-y-4 sm:space-y-6">
+          <div className="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-[#D8B9BF] bg-[#F3E9EA] flex flex-col justify-between space-y-4 sm:space-y-6">
             <div className="space-y-3 sm:space-y-4">
-              <span className="font-mono text-xs font-bold text-rose-400 uppercase tracking-widest">SUMMARY</span>
-              <h3 className="font-display text-xl sm:text-2xl font-bold text-white">Execution Focused</h3>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              <span className="font-mono text-xs font-bold text-[#B66F7D] uppercase tracking-widest">SUMMARY</span>
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-[#252529]">Execution Focused</h3>
+              <p className="text-[#626268] text-xs sm:text-sm leading-relaxed">
                 &quot;These are not risks — they are execution challenges we are actively solving.&quot;
               </p>
             </div>
-            <div className="font-mono text-[10px] sm:text-xs text-slate-400 border-t border-white/10 pt-3 sm:pt-4">
+            <div className="font-mono text-[10px] sm:text-xs text-[#8C8C91] border-t border-[#D8B9BF] pt-3 sm:pt-4">
               PATENT PENDING HARDWARE PLATFORM
             </div>
           </div>

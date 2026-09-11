@@ -48,17 +48,17 @@ const ProductSystemFlow = () => {
   ];
 
   return (
-    <section className="relative w-full bg-[#0c0d10] text-white py-32 px-6 sm:px-12 border-t border-white/10">
+    <section className="relative w-full bg-[#F7F1EE] text-[#252529] py-32 px-6 sm:px-12 border-t border-[#E7DDD9]">
       <div className="max-w-7xl mx-auto space-y-16">
         {/* Header */}
         <div className="space-y-3 text-center max-w-3xl mx-auto">
-          <div className="pill-badge border-rose-500/20 bg-rose-500/5 text-rose-400 mx-auto">
+          <div className="pill-badge border-[#D8B9BF] bg-[#F3E9EA] text-[#B66F7D] mx-auto">
             <span>03 / END-TO-END PIPELINE</span>
           </div>
-          <h2 className="font-display text-4xl sm:text-6xl font-bold tracking-tight uppercase leading-[0.95] text-white">
-            HOW INFANTMIND <span className="text-rose-500">DECODES DISTRESS</span>
+          <h2 className="font-display text-4xl sm:text-6xl font-bold tracking-tight uppercase leading-[0.95] text-[#252529]">
+            HOW INFANTMIND <span className="text-[#B66F7D]">DECODES DISTRESS</span>
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+          <p className="text-[#626268] text-sm sm:text-base leading-relaxed">
             From physical sensors inside the smart net frame to actionable health insights delivered to parents.
           </p>
         </div>
@@ -73,11 +73,11 @@ const ProductSystemFlow = () => {
                 onClick={() => setActiveStep(i)}
                 className={`p-4 rounded-2xl border text-left transition-all duration-300 ${
                   isActive
-                    ? 'bg-rose-500/10 border-rose-500 text-white shadow-lg'
-                    : 'bg-[#07080a] border-white/10 text-slate-400 hover:border-white/20'
+                    ? 'bg-[#F3E9EA] border-[#B66F7D] text-[#252529] shadow-sm'
+                    : 'bg-[#FFFDFC] border-[#E7DDD9] text-[#626268] hover:border-[#D8B9BF]'
                 }`}
               >
-                <span className={`font-mono text-xs font-bold block mb-1 ${isActive ? 'text-rose-400' : 'text-slate-500'}`}>
+                <span className={`font-mono text-xs font-bold block mb-1 ${isActive ? 'text-[#B66F7D]' : 'text-[#8C8C91]'}`}>
                   STEP {item.step}
                 </span>
                 <span className="font-display text-xs font-bold truncate block">{item.title}</span>
@@ -87,32 +87,32 @@ const ProductSystemFlow = () => {
         </div>
 
         {/* Active Stage Detail Frame */}
-        <div className="max-w-5xl mx-auto glass-card rounded-3xl p-8 sm:p-12 border border-white/10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#07080a]">
+        <div className="max-w-5xl mx-auto glass-card rounded-3xl p-8 sm:p-12 border border-[#E7DDD9] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#FFFDFC] shadow-md">
           <div className="lg:col-span-6 space-y-6">
             <div className="flex items-center gap-3">
-              <span className="font-mono text-sm font-bold text-rose-500 border border-rose-500/30 px-3 py-1 rounded-full">
+              <span className="font-mono text-sm font-bold text-[#B66F7D] border border-[#D8B9BF] bg-[#F3E9EA] px-3 py-1 rounded-full">
                 STAGE {pipeline[activeStep].step}
               </span>
-              <span className="w-2 h-2 rounded-full bg-rose-500 animate-ping" />
+              <span className="w-2 h-2 rounded-full bg-[#B66F7D] animate-ping" />
             </div>
 
-            <h3 className="font-display text-3xl font-bold text-white">{pipeline[activeStep].title}</h3>
-            <p className="text-slate-300 text-sm leading-relaxed">{pipeline[activeStep].desc}</p>
+            <h3 className="font-display text-3xl font-bold text-[#252529]">{pipeline[activeStep].title}</h3>
+            <p className="text-[#626268] text-sm leading-relaxed">{pipeline[activeStep].desc}</p>
 
-            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 font-mono text-xs text-rose-400">
-              <span className="text-slate-400 block mb-1 uppercase tracking-widest text-[10px]">PIPELINE OUTPUT:</span>
-              <span className="font-bold text-sm text-white">{pipeline[activeStep].output}</span>
+            <div className="p-4 rounded-2xl bg-[#F7F1EE] border border-[#E7DDD9] font-mono text-xs text-[#B66F7D]">
+              <span className="text-[#626268] block mb-1 uppercase tracking-widest text-[10px]">PIPELINE OUTPUT:</span>
+              <span className="font-bold text-sm text-[#252529]">{pipeline[activeStep].output}</span>
             </div>
           </div>
 
           <div className="lg:col-span-6">
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 h-[280px]">
+            <div className="relative rounded-2xl overflow-hidden border border-[#E7DDD9] h-[280px]">
               <img
                 src={pipeline[activeStep].image}
                 alt={pipeline[activeStep].title}
                 className="w-full h-full object-cover object-center transition-all duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#07080a] via-transparent to-transparent opacity-60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#FFFDFC]/80 via-transparent to-transparent opacity-60" />
             </div>
           </div>
         </div>

@@ -39,19 +39,19 @@ const PilotDrawer = ({ isOpen, onClose }) => {
       role="dialog"
       aria-modal="true"
       aria-labelledby="drawer-title"
-      className="fixed inset-0 z-[100] flex justify-end bg-black/80 backdrop-blur-md transition-opacity"
+      className="fixed inset-0 z-[100] flex justify-end bg-[#252529]/40 backdrop-blur-md transition-opacity"
     >
-      <div className="relative w-full max-w-lg bg-[#0c0d10] border-l border-white/10 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto max-h-screen">
+      <div className="relative w-full max-w-lg bg-[#FFFDFC] border-l border-[#E7DDD9] p-6 sm:p-8 flex flex-col justify-between overflow-y-auto max-h-screen shadow-2xl">
         <div>
-          <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-6">
+          <div className="flex items-center justify-between border-b border-[#E7DDD9] pb-6 mb-6">
             <div className="flex items-center gap-3">
-              <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse" />
-              <span className="font-mono text-xs tracking-widest text-slate-400 uppercase">PILOT PROGRAM ACCESS</span>
+              <span className="w-2.5 h-2.5 rounded-full bg-[#B66F7D] animate-pulse" />
+              <span className="font-mono text-xs tracking-widest text-[#626268] uppercase">PILOT PROGRAM ACCESS</span>
             </div>
             <button
               onClick={onClose}
               aria-label="Close modal"
-              className="p-2 rounded-full border border-white/10 hover:bg-white/10 transition text-slate-400 hover:text-white"
+              className="p-2 rounded-full border border-[#E7DDD9] hover:bg-[#F7F1EE] transition text-[#626268] hover:text-[#252529]"
             >
               <FiX className="text-xl" />
             </button>
@@ -59,16 +59,16 @@ const PilotDrawer = ({ isOpen, onClose }) => {
 
           {submitted ? (
             <div className="py-12 text-center space-y-4">
-              <div className="w-16 h-16 rounded-full bg-rose-500/10 border border-rose-500/30 flex items-center justify-center mx-auto text-rose-500 text-2xl">
+              <div className="w-16 h-16 rounded-full bg-[#F3E9EA] border border-[#D8B9BF] flex items-center justify-center mx-auto text-[#B66F7D] text-2xl">
                 <FiCheck />
               </div>
-              <h3 className="font-display text-2xl font-bold text-white">Application Received</h3>
-              <p className="text-slate-400 text-sm leading-relaxed max-w-sm mx-auto">
+              <h3 className="font-display text-2xl font-bold text-[#252529]">Application Received</h3>
+              <p className="text-[#626268] text-sm leading-relaxed max-w-sm mx-auto">
                 Thank you for your interest in InfantMind. Our team will reach out to you shortly regarding pilot availability.
               </p>
               <button
                 onClick={() => { setSubmitted(false); onClose(); }}
-                className="mt-6 px-6 py-2.5 rounded-full bg-white text-black font-medium text-sm hover:bg-slate-200 transition"
+                className="mt-6 px-6 py-2.5 rounded-full bg-[#B66F7D] text-white font-medium text-sm hover:bg-[#9E5C6B] transition shadow-sm"
               >
                 Close Window
               </button>
@@ -76,15 +76,15 @@ const PilotDrawer = ({ isOpen, onClose }) => {
           ) : (
             <div>
               <div className="mb-6">
-                <h2 id="drawer-title" className="font-display text-2xl sm:text-3xl font-bold text-white mb-2">Explore InfantMind</h2>
-                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                <h2 id="drawer-title" className="font-display text-2xl sm:text-3xl font-bold text-[#252529] mb-2">Explore InfantMind</h2>
+                <p className="text-[#626268] text-xs sm:text-sm leading-relaxed">
                   Join our exclusive early-access cohort and pediatrician network for the world&apos;s first AI-powered baby understanding system.
                 </p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="pilot-name" className="block font-mono text-xs text-slate-400 uppercase tracking-wider mb-2">Full Name</label>
+                  <label htmlFor="pilot-name" className="block font-mono text-xs text-[#626268] uppercase tracking-wider mb-2">Full Name</label>
                   <input
                     id="pilot-name"
                     type="text"
@@ -92,12 +92,12 @@ const PilotDrawer = ({ isOpen, onClose }) => {
                     placeholder="Enter your name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-[#121316] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-rose-500 transition"
+                    className="w-full bg-[#FFFDFC] border border-[#E7DDD9] rounded-xl px-4 py-3 text-sm text-[#252529] placeholder-[#8C8C91] focus:outline-none focus:border-[#B66F7D] focus:ring-1 focus:ring-[#EADBDD] transition"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="pilot-email" className="block font-mono text-xs text-slate-400 uppercase tracking-wider mb-2">Email Address</label>
+                  <label htmlFor="pilot-email" className="block font-mono text-xs text-[#626268] uppercase tracking-wider mb-2">Email Address</label>
                   <input
                     id="pilot-email"
                     type="email"
@@ -105,17 +105,17 @@ const PilotDrawer = ({ isOpen, onClose }) => {
                     placeholder="name@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-[#121316] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-rose-500 transition"
+                    className="w-full bg-[#FFFDFC] border border-[#E7DDD9] rounded-xl px-4 py-3 text-sm text-[#252529] placeholder-[#8C8C91] focus:outline-none focus:border-[#B66F7D] focus:ring-1 focus:ring-[#EADBDD] transition"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="pilot-role" className="block font-mono text-xs text-slate-400 uppercase tracking-wider mb-2">I am a</label>
+                  <label htmlFor="pilot-role" className="block font-mono text-xs text-[#626268] uppercase tracking-wider mb-2">I am a</label>
                   <select
                     id="pilot-role"
                     value={formData.role}
                     onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                    className="w-full bg-[#121316] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-rose-500 transition"
+                    className="w-full bg-[#FFFDFC] border border-[#E7DDD9] rounded-xl px-4 py-3 text-sm text-[#252529] focus:outline-none focus:border-[#B66F7D] focus:ring-1 focus:ring-[#EADBDD] transition"
                   >
                     <option value="Parent">Parent / Caregiver</option>
                     <option value="Pediatrician">Pediatrician / Healthcare Professional</option>
@@ -125,20 +125,20 @@ const PilotDrawer = ({ isOpen, onClose }) => {
                 </div>
 
                 <div>
-                  <label htmlFor="pilot-location" className="block font-mono text-xs text-slate-400 uppercase tracking-wider mb-2">City / Location</label>
+                  <label htmlFor="pilot-location" className="block font-mono text-xs text-[#626268] uppercase tracking-wider mb-2">City / Location</label>
                   <input
                     id="pilot-location"
                     type="text"
                     placeholder="e.g. Mumbai, Bengaluru"
                     value={formData.location}
                     onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                    className="w-full bg-[#121316] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-rose-500 transition"
+                    className="w-full bg-[#FFFDFC] border border-[#E7DDD9] rounded-xl px-4 py-3 text-sm text-[#252529] placeholder-[#8C8C91] focus:outline-none focus:border-[#B66F7D] focus:ring-1 focus:ring-[#EADBDD] transition"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full mt-6 py-3.5 rounded-full bg-white text-black font-semibold text-sm flex items-center justify-center gap-2 hover:bg-slate-200 transition group"
+                  className="w-full mt-6 py-3.5 rounded-full bg-[#B66F7D] text-white font-semibold text-sm flex items-center justify-center gap-2 hover:bg-[#9E5C6B] transition shadow-md group"
                 >
                   <span>Submit Application</span>
                   <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
@@ -148,8 +148,8 @@ const PilotDrawer = ({ isOpen, onClose }) => {
           )}
         </div>
 
-        <div className="pt-6 border-t border-white/10 text-center">
-          <p className="font-mono text-[10px] text-slate-500 uppercase tracking-widest">
+        <div className="pt-6 border-t border-[#E7DDD9] text-center">
+          <p className="font-mono text-[10px] text-[#8C8C91] uppercase tracking-widest">
             Privacy-First Architecture • Encrypted Data Layer
           </p>
         </div>

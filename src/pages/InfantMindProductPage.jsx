@@ -11,7 +11,7 @@ import Footer from '../components/Footer';
 
 const InfantMindProductPage = ({ onOpenPilot }) => {
   return (
-    <div className="w-full min-h-screen bg-[#07080a] text-white">
+    <div className="w-full min-h-screen bg-[#FBF8F5] text-[#252529]">
       {/* Product Page Unique SEO Metadata */}
       <SeoHead
         title="InfantMind Smart Net — AI-Powered Baby Understanding Platform"
